@@ -34,7 +34,9 @@ export default function Nav() {
       <header className="w-full container mx-auto py-6 sm:px-4">
         <nav className="w-full flex justify-between items-center flex-wrap p-2">
           <Link href="/">
-            <a className="text-black dark:text-gray-200 md:mr-4">CryptoInfo.</a>
+            <a className="text-black font-bold dark:text-gray-200 md:mr-4">
+              CryptoInfo.
+            </a>
           </Link>
           <div className="flex flex-1 items-center ml-4">
             <p className="text-xs mr-2 dark:text-gray-200">Dark Mode</p>
