@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import useDarkMode from "../../hooks/useDarkMode";
 import HamburgerImage from "../../assets/images/hamburger.png";
-import NavLink from "./navLink";
+import NavLink from "./NavLinks";
 
 const navLinks = [
   { title: "Currency Info", path: "/currencyinfo" },
