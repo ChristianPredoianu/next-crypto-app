@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import useDarkMode from "../../hooks/useDarkMode";
-import HamburgerImage from "../../assets/images/hamburger.png";
-import NavLink from "./NavLinks";
+import useDarkMode from "@/hooks/useDarkMode";
+import HamburgerImage from "@/assets/images/hamburger.png";
+import NavLink from "@/components/nav/NavLinks";
 
 const navLinks = [
   { title: "Currency Info", path: "/currencyinfo" },
