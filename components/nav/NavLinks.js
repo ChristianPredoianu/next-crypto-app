@@ -8,7 +8,7 @@ export default function NavLink({ path, closeNav, title }) {
   return (
     <li
       className={`block mt-4 md:inline-block md:mt-0 mr-4 dark:text-gray-200 hover:text-blue-600 ${
-        currentRoute === path ? "text-blue-700 dark:text-gray-400" : ""
+        currentRoute === path ? "text-blue-700  dark:text-blue-400" : ""
       }`}
       onClick={closeNav}
     >
