@@ -1,14 +1,14 @@
-import { useRef } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import WatchImg from "@/assets/images/watch.png";
-import HomeInfoCard from "@/components/cards/HomeInfoCard";
-import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap } from "gsap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { infoCardData } from "utils/infoCardContent";
+import { useRef } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import WatchImg from '@/assets/images/watch.png';
+import HomeInfoCard from '@/components/cards/HomeInfoCard';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { infoCardData } from 'utils/infoCardContent';
 
 export default function Home() {
   const cardsSection = useRef(null);
@@ -20,12 +20,12 @@ export default function Home() {
   function scrollToCardsSectionHandler() {
     window.scrollTo({
       top: cardsSection.current.offsetTop,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
   useIsomorphicLayoutEffect(() => {
-    tl.from(q(".hero-el"), { y: 100, opacity: 0, duration: 1, stagger: 0.5 });
+    tl.from(q('.hero-el'), { y: 100, opacity: 0, duration: 1, stagger: 0.5 });
   }, []);
 
   return (
@@ -35,7 +35,7 @@ export default function Home() {
       </Head>
       <section>
         <div
-          className="flex flex-col items-center my-20 md:flex-row md:justify-around md:my-48 xl:my-64"
+          className="flex flex-col items-center md:flex-row md:justify-around my-20 md:my-48 xl:my-64"
           ref={ctaContainer}
         >
           <div className="flex flex-col items-center">
@@ -71,7 +71,7 @@ export default function Home() {
       </section>
 
       <section
-        className="flex flex-col items-center gap-y-4 py-40 md:flex-row md:justify-around md:items-stretch md:gap-y-0"
+        className="flex flex-col items-center md:flex-row md:justify-around md:items-stretch md:gap-y-0 gap-y-4 py-40"
         ref={cardsSection}
       >
         {infoCardData.map((cardData) => (
