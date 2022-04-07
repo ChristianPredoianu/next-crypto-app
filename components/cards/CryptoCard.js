@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 
 export default function CryptoCard({
   currencyName,
@@ -10,12 +11,7 @@ export default function CryptoCard({
   currencyVolume,
   currencySupply,
 }) {
-  const currencyFormatter = new Intl.NumberFormat('en-us', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 6,
-  });
+  const [currencyFormatter] = useCurrencyFormatter();
 
   const cryptoCurrency = currencyName;
   let cardGradient;
@@ -57,7 +53,7 @@ export default function CryptoCard({
             />
           </div>
         </div>
-        <div className="w-11/12 px-10 py-4 mt-6 font-extralight text-gray-900 dark:text-gray-300 shadow-lg shadow-gray-400 dark:shadow-sm dark:shadow-gray-600 sm:mt-0">
+        <div className="w-full px-10 py-4 mt-6 font-extralight text-gray-900 dark:text-gray-300 shadow-lg shadow-gray-400 dark:shadow-sm dark:shadow-gray-600 sm:mt-0">
           <div className="py-2">
             <h2 className="text-2xl uppercase tracking-wider">
               {currencyName}
@@ -65,10 +61,10 @@ export default function CryptoCard({
             <p className="text-lg text-orange-400">{currencySymbol}</p>
           </div>
           <div className="flex py-2">
-            <h3 className="text-4xl">{`${currencyFormatter.format(
+            <h3 className="text-3xl">{`${currencyFormatter.format(
               currencyPrice
             )}`}</h3>
-            <p className="text-xl text-green-600 ml-2">{`Rank: ${currencyRank}`}</p>
+            <p className="text-sm text-green-600 ml-1">{`Rank: ${currencyRank}`}</p>
           </div>
           <div className="py-2">
             <p className="text-2xl">{`${currencyFormatter.format(
@@ -83,7 +79,7 @@ export default function CryptoCard({
             <p className="text-lg text-gray-500">Volume</p>
           </div>
           <div className="py-2">
-            <p className="text-2xl">{`$ ${currencySupply.toLocaleString(
+            <p className="text-2xl">{`$${currencySupply.toLocaleString(
               'en-us',
               { minimumFractionDigits: 2 }
             )}`}</p>
