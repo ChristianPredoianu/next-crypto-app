@@ -1,19 +1,30 @@
-import CryptoListItem from './CryptoListItem';
+import { useState, useEffect } from 'react';
+import CryptoListMenu from '@/components/crypto-list/CryptoListMenu';
+import CryptoListItem from '@/components/crypto-list/CryptoListItem';
 
 export default function CryptoList({ currencyData }) {
-  console.log(currencyData);
+  let [dataToMap, setDataToMap] = useState(currencyData);
+  let [sortType, setSortType] = useState(null);
+
+  function sortDataHandler(dataToSort, order = null) {
+    setSortType(order);
+
+    const sortedData = currencyData.sort((a, b) =>
+      order === 'ascending'
+        ? b[dataToSort] - a[dataToSort]
+        : a[dataToSort] - b[dataToSort]
+    );
+
+    setDataToMap(sortedData);
+  }
+
   return (
     <>
-      <div className="w-11/12 mx-auto flex justify-around pb-2">
-        <p className="flex-1 md:w-1/5">Name</p>
-        <p className="w-5/12 md:w-1/5 text-center md:text-left">Price</p>
-        <p className="hidden md:block md:w-1/5">24H Change</p>
-        <p className="hidden md:block md:w-1/5">24H Volume</p>
-        <p className="hidden md:block md:w-1/5">Market Cap</p>
-      </div>
+      <CryptoListMenu onSortData={sortDataHandler} />
+      <div className="flex w-11/12 items-center mx-auto bg-red-500"></div>
       <div className="">
         <ul className="flex flex-col gap-4">
-          {currencyData.map((currency) => (
+          {dataToMap.map((currency) => (
             <CryptoListItem
               key={currency.id}
               currencyName={currency.name}
