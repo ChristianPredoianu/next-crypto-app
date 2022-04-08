@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CryptoListMenu from '@/components/crypto-list/CryptoListMenu';
 import CryptoListItem from '@/components/crypto-list/CryptoListItem';
 
