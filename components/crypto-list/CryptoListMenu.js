@@ -1,62 +1,57 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import CryptoListMenuItem from '@/components/crypto-list/CryptoListMenuItem';
 
-export default function CryptoListMenu({ onSortData }) {
+export default function CryptoListMenu({ isActive, onSortData }) {
+  const menuItems = [
+    { name: '' },
+    {
+      name: 'Price',
+      sortAscending: function () {
+        onSortData('current_price', 'ascending');
+      },
+      sortDescending: function () {
+        onSortData('current_price');
+      },
+    },
+    {
+      name: '24H Change',
+      sortAscending: function () {
+        onSortData('price_change_24h', 'ascending');
+      },
+      sortDescending: function () {
+        onSortData('price_change_24h');
+      },
+    },
+    {
+      name: 'Total Volume',
+      sortAscending: function () {
+        onSortData('total_volume', 'ascending');
+      },
+      sortDescending: function () {
+        onSortData('total_volume');
+      },
+    },
+    {
+      name: 'Market Cap',
+      sortAscending: function () {
+        onSortData('market_cap', 'ascending');
+      },
+      sortDescending: function () {
+        onSortData('market_cap');
+      },
+    },
+  ];
+
   return (
-    <div className="w-11/12 mx-auto flex justify-around items-center pb-8">
-      <p className="flex-1 md:w-1/5">Name</p>
-      <div className="w-5/12 flex justify-center items-center md:justify-start md:w-1/5 text-center md:text-left">
-        <p>Price</p>
-        <div className="flex flex-col ml-2">
-          <FontAwesomeIcon
-            icon={faCaretUp}
-            onClick={() => onSortData('current_price', 'ascending')}
-          />
-          <FontAwesomeIcon
-            icon={faCaretDown}
-            onClick={() => onSortData('current_price')}
-          />
-        </div>
-      </div>
-      <div className="hidden md:flex items-center w-5/12 md:w-1/5 text-center md:text-left">
-        <p>24H Change</p>
-        <div className="flex flex-col ml-2">
-          <FontAwesomeIcon
-            icon={faCaretUp}
-            onClick={() => onSortData('price_change_24h', 'ascending')}
-          />
-          <FontAwesomeIcon
-            icon={faCaretDown}
-            onClick={() => onSortData('price_change_24h')}
-          />
-        </div>
-      </div>
-      <div className="hidden md:flex items-center w-5/12 md:w-1/5 text-center md:text-left">
-        <p>Total Volume</p>
-        <div className="flex flex-col ml-2">
-          <FontAwesomeIcon
-            icon={faCaretUp}
-            onClick={() => onSortData('total_volume', 'ascending')}
-          />
-          <FontAwesomeIcon
-            icon={faCaretDown}
-            onClick={() => onSortData('total_volume')}
-          />
-        </div>
-      </div>
-      <div className="hidden md:flex items-center w-5/12 md:w-1/5 text-center md:text-left">
-        <p>Market Cap</p>
-        <div className="flex flex-col ml-2">
-          <FontAwesomeIcon
-            icon={faCaretUp}
-            onClick={() => onSortData('market_cap', 'ascending')}
-          />
-          <FontAwesomeIcon
-            icon={faCaretDown}
-            onClick={() => onSortData('market_cap')}
-          />
-        </div>
-      </div>
+    <div className="flex justify-end md:justify-around w-11/12 mx-auto py-4 bg-red-500">
+      {menuItems.map((item, index) => (
+        <CryptoListMenuItem
+          key={item.name}
+          index={index}
+          name={item.name}
+          onSortAscending={item.sortAscending}
+          onSortDescending={item.sortDescending}
+        />
+      ))}
     </div>
   );
 }
