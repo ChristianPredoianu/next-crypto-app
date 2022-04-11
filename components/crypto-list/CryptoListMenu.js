@@ -1,57 +1,83 @@
 import CryptoListMenuItem from '@/components/crypto-list/CryptoListMenuItem';
 
-export default function CryptoListMenu({ isActive, onSortData }) {
+export default function CryptoListMenu({
+  activeArrow,
+  onResetInitialData,
+  onSortData,
+}) {
   const menuItems = [
-    { name: '' },
+    { name: 'Name', reset: 'Reset' },
     {
       name: 'Price',
-      sortAscending: function () {
-        onSortData('current_price', 'ascending');
+      arrowIdUp: 1,
+      arrowIdDown: 2,
+      sortAscending: function (arrowId) {
+        onSortData('current_price', arrowId, 'ascending');
       },
-      sortDescending: function () {
-        onSortData('current_price');
+      sortDescending: function (arrowId) {
+        onSortData('current_price', arrowId);
       },
     },
     {
       name: '24H Change',
-      sortAscending: function () {
-        onSortData('price_change_24h', 'ascending');
+      arrowIdUp: 3,
+      arrowIdDown: 4,
+      sortAscending: function (arrowId) {
+        onSortData('price_change_percentage_24h', arrowId, 'ascending');
       },
-      sortDescending: function () {
-        onSortData('price_change_24h');
+      sortDescending: function (arrowId) {
+        onSortData('price_change_percentage_24h', arrowId);
       },
     },
     {
       name: 'Total Volume',
-      sortAscending: function () {
-        onSortData('total_volume', 'ascending');
+      arrowIdUp: 5,
+      arrowIdDown: 6,
+      sortAscending: function (arrowId) {
+        onSortData('total_volume', arrowId, 'ascending');
       },
-      sortDescending: function () {
-        onSortData('total_volume');
+      sortDescending: function (arrowId) {
+        onSortData('total_volume', arrowId);
       },
     },
     {
       name: 'Market Cap',
-      sortAscending: function () {
-        onSortData('market_cap', 'ascending');
+      arrowIdUp: 7,
+      arrowIdDown: 8,
+      sortAscending: function (arrowId) {
+        onSortData('market_cap', arrowId, 'ascending');
       },
-      sortDescending: function () {
-        onSortData('market_cap');
+      sortDescending: function (arrowId) {
+        onSortData('market_cap', arrowId);
       },
     },
   ];
 
   return (
-    <div className="flex justify-end md:justify-around w-11/12 mx-auto py-4 bg-red-500">
-      {menuItems.map((item, index) => (
-        <CryptoListMenuItem
-          key={item.name}
-          index={index}
-          name={item.name}
-          onSortAscending={item.sortAscending}
-          onSortDescending={item.sortDescending}
-        />
-      ))}
-    </div>
+    <>
+      <div className="flex justify-end items-stretch md:justify-between w-11/12 mx-auto px-4">
+        {menuItems.map((item, index) => (
+          <CryptoListMenuItem
+            key={item.name}
+            index={index}
+            name={item.name}
+            reset={item.reset}
+            arrowIdUp={item.arrowIdUp}
+            arrowIdDown={item.arrowIdDown}
+            activeArrow={activeArrow}
+            onSortAscending={() => item.sortAscending(item.arrowIdUp)}
+            onSortDescending={() => item.sortDescending(item.arrowIdDown)}
+          />
+        ))}
+      </div>
+      <div className="w-11/12 pb-3 px-4 mx-auto">
+        <button
+          className="bg-green-500 dark:bg-green-800 py-1 px-2 rounded"
+          onClick={onResetInitialData}
+        >
+          Reset
+        </button>
+      </div>
+    </>
   );
 }
