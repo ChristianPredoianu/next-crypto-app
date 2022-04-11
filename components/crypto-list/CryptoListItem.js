@@ -13,8 +13,8 @@ export default function CryptoListItem({
   const [currencyFormatter] = useCurrencyFormatter();
 
   return (
-    <li className="w-11/12 flex justify-around items-center border py-2 mx-auto border-black dark:border-gray-600">
-      <div className="flex items-center ml-2 flex-1 md:w-1/5">
+    <li className="flex justify-between items-center w-11/12 mx-auto px-4 py-2 shadow-lg shadow-gray-300 dark:bg-slate-900 dark:shadow-sm dark:shadow-gray-800">
+      <div className="w-full">
         <Image
           src={currencyImg}
           alt="crypto"
@@ -23,13 +23,14 @@ export default function CryptoListItem({
           height={30}
           priority
         />
-        <div className="flex-1 ml-2">
-          <p className="dark:text-purple-500">{currencyName}</p>
+
+        <div className="w-full">
+          <p className="text-sm dark:text-purple-400">{currencyName}</p>
           <p className="text-sm">{currencySymbol}</p>
         </div>
       </div>
-      <div className="w-5/12 md:w-1/5 text-center md:text-left">
-        <p className="">{currencyFormatter.format(currencyPrice)}</p>
+      <div className="w-full">
+        <p>{currencyFormatter.format(currencyPrice)}</p>
         <p
           className={`md:hidden ${
             currencyChangePercent > 0 ? 'text-green-500' : 'text-red-500'
@@ -39,16 +40,16 @@ export default function CryptoListItem({
         </p>
       </div>
       <p
-        className={`hidden md:block md:w-1/5 ${
+        className={`hidden w-full md:block ${
           currencyChangePercent > 0 ? 'text-green-500' : 'text-red-500'
         }`}
       >
         {`${currencyChangePercent > 0 ? '+' : ''}${currencyChangePercent}`}
       </p>
-      <p className="hidden md:block md:w-1/5">
+      <p className="hidden w-full md:block ">
         {currencyFormatter.format(currencyVolume)}
       </p>
-      <p className="hidden md:block md:w-1/5">
+      <p className="hidden w-full md:block">
         {currencyFormatter.format(currencyMarketCap)}
       </p>
     </li>
