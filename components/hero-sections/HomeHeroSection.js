@@ -1,23 +1,23 @@
 import { useRef } from 'react';
 import Link from 'next/link';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { gsap } from 'gsap';
 import Image from 'next/image';
+import useScrollToSection from '@/hooks/useScrollToSection';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import WatchImg from '@/assets/images/watch.png';
+import { gsap } from 'gsap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function HomeHeroSection({ cardsSection }) {
+  const [scrollToSection] = useScrollToSection();
+
   const ctaContainer = useRef(null);
 
   const q = gsap.utils.selector(ctaContainer);
   const tl = gsap.timeline();
 
   function scrollToCardsSectionHandler() {
-    window.scrollTo({
-      top: cardsSection.current.offsetTop,
-      behavior: 'smooth',
-    });
+    scrollToSection(cardsSection);
   }
 
   useIsomorphicLayoutEffect(() => {
