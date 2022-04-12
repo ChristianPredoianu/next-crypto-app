@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useCurrencyGradient from '@/hooks/useCurrencyGradient';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 
 export default function CryptoCard({
@@ -12,26 +13,7 @@ export default function CryptoCard({
   currencySupply,
 }) {
   const [currencyFormatter] = useCurrencyFormatter();
-
-  const cryptoCurrency = currencyName;
-  let cardGradient;
-
-  switch (cryptoCurrency) {
-    case 'Bitcoin':
-      cardGradient = 'from-orange-400';
-      break;
-    case 'Ethereum':
-      cardGradient = 'from-purple-400';
-      break;
-    case 'Tether':
-      cardGradient = 'from-green-400';
-      break;
-    case 'BNB':
-      cardGradient = 'from-yellow-400';
-      break;
-    case 'USD Coin':
-      cardGradient = 'from-blue-400';
-  }
+  const [cardGradient] = useCurrencyGradient(currencyName);
 
   return (
     <>
