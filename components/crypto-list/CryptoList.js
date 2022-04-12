@@ -22,7 +22,7 @@ export default function CryptoList({ currencyData }) {
     setActiveArrow(null);
     setDataToMap(currencyData);
   }
-
+  console.log(currencyData);
   return (
     <>
       <CryptoListMenu
