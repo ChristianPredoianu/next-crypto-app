@@ -1,7 +1,11 @@
+import { useRef } from 'react';
 import CryptoInfoCard from '@/components/cards/CryptoInfoCard';
+import CryptoInfoList from '@/components/crypto-info-list/CryptoInfoList';
+import ArrowUp from '@/components/Ui/ArrowUp';
 
 export default function CurrencyInfoPage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
+  const listRef = useRef(null);
 
   return (
     <>
@@ -16,7 +20,10 @@ export default function CurrencyInfoPage({ currencyData }) {
           informed about them before you invest.
         </h2>
       </section>
-      <section className="flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24">
+      <section
+        className="flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24"
+        ref={listRef}
+      >
         {topFiveCurrencies.map((card) => (
           <CryptoInfoCard
             key={card.name}
@@ -26,6 +33,12 @@ export default function CurrencyInfoPage({ currencyData }) {
             price={card.current_price}
           />
         ))}
+      </section>
+      <section className="mx-auto py-10 lg:py-20 lg:w-3/4">
+        <CryptoInfoList currencyData={currencyData} />
+        <div className="text-center py-10 lg:py-20">
+          <ArrowUp sectionRef={listRef} />
+        </div>
       </section>
     </>
   );
