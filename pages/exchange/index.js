@@ -1,10 +1,8 @@
 import { useRef } from 'react';
-import useScrollToSection from '@/hooks/useScrollToSection';
 import ExchangeHeroSection from '@/components/hero-sections/ExchangeHeroSection';
 import CryptoCard from '@/components/cards/CryptoCard';
 import CryptoList from '@/components/crypto-list/CryptoList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import ArrowUp from '@/components/Ui/ArrowUp';
 
 export default function ExchangePage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
@@ -12,19 +10,9 @@ export default function ExchangePage({ currencyData }) {
   const cardsSectionRef = useRef(null);
   const listRef = useRef(null);
 
-  const [scrollToSection] = useScrollToSection();
-
-  function scrollToCardsSectionHandler() {
-    scrollToSection(cardsSectionRef);
-  }
-
-  function scrollToListHandler() {
-    scrollToSection(listRef);
-  }
-
   return (
     <>
-      <ExchangeHeroSection onScrollToCards={scrollToCardsSectionHandler} />
+      <ExchangeHeroSection listRef={cardsSectionRef} />
       <h2
         className="text-2xl text-center md:text-4xl lg:text-5xl pt-20 md:pt-40 lg:pt-64"
         ref={cardsSectionRef}
@@ -49,8 +37,8 @@ export default function ExchangePage({ currencyData }) {
       <section className="py-20" ref={listRef}>
         <CryptoList currencyData={currencyData} />
       </section>
-      <div className="text-4xl text-center animate-bounce cursor-pointer">
-        <FontAwesomeIcon icon={faArrowUp} onClick={scrollToListHandler} />
+      <div className="text-center">
+        <ArrowUp sectionRef={listRef} />
       </div>
     </>
   );
