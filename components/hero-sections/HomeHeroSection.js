@@ -1,24 +1,16 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import useScrollToSection from '@/hooks/useScrollToSection';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import WatchImg from '@/assets/images/watch.png';
+import ArrowDown from '@/components/Ui/ArrowDown';
 import { gsap } from 'gsap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function HomeHeroSection({ cardsSection }) {
-  const [scrollToSection] = useScrollToSection();
-
   const ctaContainer = useRef(null);
 
   const q = gsap.utils.selector(ctaContainer);
   const tl = gsap.timeline();
-
-  function scrollToCardsSectionHandler() {
-    scrollToSection(cardsSection);
-  }
 
   useIsomorphicLayoutEffect(() => {
     tl.from(q('.hero-el'), { y: 100, opacity: 0, duration: 1, stagger: 0.5 });
@@ -55,10 +47,7 @@ export default function HomeHeroSection({ cardsSection }) {
         </div>
       </div>
       <div className="flex justify-center text-4xl cursor-pointer">
-        <FontAwesomeIcon
-          icon={faArrowDown}
-          onClick={scrollToCardsSectionHandler}
-        />
+        <ArrowDown sectionRef={cardsSection} />
       </div>
     </section>
   );

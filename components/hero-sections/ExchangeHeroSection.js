@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import CryptoImg from '@/assets/images/crypto.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import ArrowDown from '@/components/Ui/ArrowDown';
 
-export default function ExchangeHeroSection({ onScrollToCards }) {
+export default function ExchangeHeroSection({ listRef }) {
   return (
     <section className="flex flex-col items-center md:flex md:flex-row md:items-stretch md:justify-around bg-black dark:bg-transparent text-gray-300 px-10 sm:px-0 sm:py-20 md:mt-10 dark:border-b dark:border-gray-200">
       <div className="py-10 sm:w-3/6 lg:w-4/12 xl:w-3/12">
@@ -14,11 +13,7 @@ export default function ExchangeHeroSection({ onScrollToCards }) {
           <span className="inline-block text-lg">Powered by coingecko.com</span>
         </h1>
         <div className="text-4xl text-gray-300 dark:text-purple-600 mt-10 md:mt-20 lg:mt-32 text-center cursor-pointer">
-          <FontAwesomeIcon
-            icon={faArrowDown}
-            className="py-2 px-3 rounded-full border border-purple-600 animate-bounce"
-            onClick={onScrollToCards}
-          />
+          <ArrowDown sectionRef={listRef} />
         </div>
       </div>
       <div className="block w-full md:w-3/6 mt-16 md:mt-0">
