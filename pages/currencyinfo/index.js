@@ -24,19 +24,20 @@ export default function CurrencyInfoPage({ currencyData }) {
         className="flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24"
         ref={listRef}
       >
-        {topFiveCurrencies.map((card) => (
+        {topFiveCurrencies.map((currency) => (
           <CryptoInfoCard
-            key={card.name}
-            name={card.name}
-            symbol={card.symbol}
-            img={card.image}
-            price={card.current_price}
+            key={currency.name}
+            name={currency.name}
+            id={currency.id}
+            symbol={currency.symbol}
+            img={currency.image}
+            price={currency.current_price}
           />
         ))}
       </section>
-      <section className="mx-auto py-10 lg:py-20 lg:w-3/4">
+      <section className="mx-auto py-10 lg:py-64 lg:w-3/4">
         <CryptoInfoList currencyData={currencyData} />
-        <div className="text-center py-10 lg:py-20">
+        <div className="text-center mt-20 lg:mt-36">
           <ArrowUp sectionRef={listRef} />
         </div>
       </section>
