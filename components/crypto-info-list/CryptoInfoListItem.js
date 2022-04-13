@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,7 +31,6 @@ export default function CryptoInfoListItem({
           <Image src={img} alt="crypto" layout="fixed" width={30} height={30} />
           <p className="ml-4">
             {name}
-            {` `}
             <span>{`(${symbol})`}</span>
           </p>
         </div>
@@ -56,7 +56,12 @@ export default function CryptoInfoListItem({
         }}
       >
         <div ref={nodeRef}>
-          <p>More info about {name}</p>
+          <p>
+            More info about{' '}
+            <Link href={`/currencyinfo/${id}`}>
+              <a>{name}</a>
+            </Link>
+          </p>
         </div>
       </CSSTransition>
     </li>

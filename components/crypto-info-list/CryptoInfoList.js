@@ -5,7 +5,7 @@ export default function CryptoInfoList({ currencyData }) {
   const [activeListItem, setActiveListItem] = useState(null);
 
   return (
-    <ul className="flex flex-col gap-y-6 px-4">
+    <ul className="flex flex-col px-6 py-16 rounded-3xl shadow-2xl shadow-gray-500">
       {currencyData.map((currency) => (
         <CryptoInfoListItem
           key={currency.name}
