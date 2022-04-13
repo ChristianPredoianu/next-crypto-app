@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'clr-dark-theme': '#121212',
       },
+      height: {
+        75: '80vh',
+      },
     },
   },
   plugins: [],
