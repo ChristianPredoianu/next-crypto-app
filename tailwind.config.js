@@ -8,9 +8,7 @@ module.exports = {
     extend: {
       colors: {
         'clr-dark-theme': '#121212',
-      },
-      height: {
-        75: '80vh',
+        'clr-bg-dark': 'rgba(36, 53, 200, 1)',
       },
     },
   },
