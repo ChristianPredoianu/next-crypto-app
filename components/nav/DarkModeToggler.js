@@ -4,7 +4,7 @@ import useDarkMode from '@/hooks/useDarkMode';
 export default function DarkModeToggler() {
   let [isDarkMode, setIsDarkMode] = useState(false);
 
-  const [colorTheme, setTheme] = useDarkMode();
+  const [colorTheme, setTheme] = useDarkMode(isDarkMode);
 
   function toggleDarkModeHandler() {
     setIsDarkMode(!isDarkMode);
