@@ -17,3 +17,22 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.glass {
+  /* From https://css.glass */
+  background: rgba(38, 53, 136, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(15, 28, 218, 0.6);
+  backdrop-filter: blur(2.3px);
+  -webkit-backdrop-filter: blur(2.3px);
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.glass-btn {
+  background: rgba(41, 19, 141, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(15, 28, 218, 0.37);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
