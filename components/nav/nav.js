@@ -1,6 +1,6 @@
-import NavLogo from "@/components/nav/NavLogo";
-import DarkModeToggler from "@/components/nav/DarkModeToggler";
-import Menu from "@/components/nav/Menu";
+import NavLogo from '@/components/nav/NavLogo';
+import DarkModeToggler from '@/components/nav/DarkModeToggler';
+import Menu from '@/components/nav/Menu';
 
 export default function Nav() {
   return (
