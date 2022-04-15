@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import useCurrencyGradient from '@/hooks/useCurrencyGradient';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
@@ -13,13 +14,13 @@ export default function CryptoCard({
   currencySupply,
 }) {
   const [currencyFormatter] = useCurrencyFormatter();
-  const [cardGradient] = useCurrencyGradient(currencyName);
+  const cardGradient = useCurrencyGradient(currencyName);
 
   return (
     <>
       <div className="flex flex-col items-center sm:flex sm:flex-row ">
         <div
-          className={`relative py-20 px-20 bg-gradient-to-b ${cardGradient} to-gray-200 shadow-lg shadow-gray-400 dark:shadow-sm sm:py-32`}
+          className={`relative py-20 px-20 bg-gradient-to-b ${cardGradient}  to-gray-200-500    shadow-lg shadow-gray-400 dark:shadow-sm sm:py-32`}
         >
           <p className="absolute bottom-2 right-2 text-4xl text-gray-600 opacity-60  ">
             {currencySymbol.toUpperCase()}
