@@ -9,7 +9,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
-export default function CurrencyInfoHeroSection({ name, image, links }) {
+export default function CurrencyInfoHeroSection({ currencyData }) {
+  const { name, image, links } = currencyData;
+
   const icons = [
     {
       name: 'facebook',
@@ -29,6 +31,7 @@ export default function CurrencyInfoHeroSection({ name, image, links }) {
     <>
       <section
         className="relative flex text-gray-200 py-20 bg-bottom bg-no-repeat bg-cover"
+        id="test"
         style={{
           backgroundImage: `url(${BgImage.src})`,
         }}
@@ -37,7 +40,7 @@ export default function CurrencyInfoHeroSection({ name, image, links }) {
           {/* Overlay */}
           <div className="absolute inset-0 z-10 w-full h-full bg-slate-800 dark:bg-clr-dark-theme opacity-30 dark:opacity-70"></div>
           <div className="relative z-20 py-10">
-            <h1 className="text-4xl">{`Discover ${name}`}</h1>
+            {<h1 className="text-4xl">{`Discover ${name}`}</h1>}
             <div className="flex justify-around items-center py-10 text-3xl text-white">
               {icons.map((icon) => (
                 <SocialMediaIcon
@@ -53,7 +56,7 @@ export default function CurrencyInfoHeroSection({ name, image, links }) {
           </div>
           <div className="absolute md:relative -bottom-8 right-6 z-20 w-2/12 md:w-1/12 py-20 md:py-0">
             <Image
-              src={image}
+              src={image.large}
               alt="crypto logo"
               layout="responsive"
               width={150}

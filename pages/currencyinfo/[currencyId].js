@@ -1,34 +1,52 @@
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
-import CurrencyInfoHeroSection from '@/components/hero-sections/AboutCurrencyHeroSection';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import AboutCurrencyInfo from '@/components/hero-sections/AboutCurrencyHeroSection';
 import AboutCryptoCard from '@/components/cards/about-crypto-card/AboutCryptoCard';
 import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
-  console.log(currencyData);
+  const currencyDescription = currencyData.description.en.replace(
+    /(<([^>]+)>)/gi,
+    ''
+  );
+  gsap.registerPlugin(ScrollTrigger);
+  const cardRef = useRef(null);
+
+  useIsomorphicLayoutEffect(() => {
+    gsap.from('#cardRef', {
+      y: 600,
+      duration: 1,
+      scrollTrigger: {
+        trigger: '#test',
+        scrub: 1,
+        markers: true,
+      },
+    });
+  }, []);
 
   return (
     <>
-      <CurrencyInfoHeroSection
-        name={currencyData.name}
-        image={currencyData.image.large}
-        links={currencyData.links}
-      />
-      <section className="relative container mx-auto flex flex-col">
-        <AboutCryptoCard
-          name={currencyData.name}
-          symbol={currencyData.symbol}
-          rank={currencyData.coingecko_rank}
-          image={currencyData.image.large}
-          marketData={currencyData.market_data}
-        />
-        <p className=" hidden md:block text-gray-400 text-7xl text-center -mt-40 ml-72">
+      <AboutCurrencyInfo currencyData={currencyData} />
+      <section
+        className="relative container mx-auto flex flex-col"
+        ref={cardRef}
+        id="cardRef"
+      >
+        {/* 
+        <AboutCryptoCard currencyData={currencyData} /> */}
+        <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
           Market
         </p>
       </section>
-      <section className="container mx-auto mt-64">
-        <h3>About {currencyData.name}</h3>
+      <section className="container mx-auto flex mt-40 sm:mt-64 xl:py-40">
         <div className="flex flex-col md:flex-row justify-around items-center">
-          <div className="bg-red-500 w-2/5">
+          <div className="w-3/6 md:w-2/6 pb-10 md:pb-0">
+            <h3 className="text-center text-4xl pb-10 md:pb-0">
+              {currencyData.name}
+            </h3>
             <Image
               src={InfoImg}
               alt="information on devices"
@@ -37,10 +55,10 @@ export default function CurrencyDetails({ currencyData }) {
               height={144}
             />
           </div>
-          <div className="w-full flex flex-col justify-end items-end">
-            <h5>Basic Information</h5>
-            <h3>{currencyData.name}</h3>
-            <p>{currencyData.description.en}</p>
+          <div className="w-11/12 md:w-7/12">
+            <h5 className="text-xl py-4">Basic Information</h5>
+            <h3 className="text-3xl pb-4">About {currencyData.name}</h3>
+            <p>{currencyDescription}</p>
           </div>
         </div>
       </section>

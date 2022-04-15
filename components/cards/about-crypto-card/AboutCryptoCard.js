@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import Image from 'next/image';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 import AboutCryptoCardList from '@/components/cards/about-crypto-card/AboutCryptoCardList';
@@ -10,6 +11,7 @@ export default function AboutCryptoCard({
   marketData,
 }) {
   const [currencyFormatter] = useCurrencyFormatter();
+  const cardRef = useRef(null);
 
   const market = [
     { title: 'Rank:', data: rank },
@@ -35,7 +37,10 @@ export default function AboutCryptoCard({
     },
   ];
   return (
-    <div className=" glass w-3/4 lg:w-2/5  text-2xl mx-auto text-black dark:text-gray-200 -mt-10 dark:mt-4 py-8">
+    <div
+      className="glass w-11/12 lg:w-7/12 xl:w-5/12 text-2xl mx-auto text-black dark:text-gray-200 -mt-14 dark:mt-4 py-8"
+      ref={cardRef}
+    >
       <div className="flex justify-around items-center mt-8">
         <h2 className="text-4xl">{name}</h2>
         <Image src={image} alt="crypto" layout="fixed" width={80} height={80} />
