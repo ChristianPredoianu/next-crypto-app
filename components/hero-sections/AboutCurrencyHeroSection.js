@@ -31,7 +31,7 @@ export default function CurrencyInfoHeroSection({ currencyData }) {
     <>
       <section
         className="relative flex text-gray-200 py-20 bg-bottom bg-no-repeat bg-cover"
-        id="test"
+        id="hero-section"
         style={{
           backgroundImage: `url(${BgImage.src})`,
         }}
