@@ -1,7 +1,7 @@
 export default function AboutCryptoCardListItem({ title, data, index }) {
   let color;
 
-  data[2] < 0 ? (color = 'text-red-500') : (color = 'text-green-500');
+  data < 0 ? (color = 'text-red-500') : (color = 'text-green-500');
 
   return (
     <li className="border-b border-b-gray-500">
