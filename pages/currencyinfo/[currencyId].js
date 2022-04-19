@@ -1,42 +1,50 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import AboutCurrencyInfo from '@/components/hero-sections/AboutCurrencyHeroSection';
+import AboutCurrencyInfoHeroSection from '@/components/hero-sections/AboutCurrencyHeroSection';
 import AboutCryptoCard from '@/components/cards/about-crypto-card/AboutCryptoCard';
 import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
+  gsap.registerPlugin(ScrollTrigger);
+  const tl = gsap.timeline({ duration: 1 });
+
   const currencyDescription = currencyData.description.en.replace(
     /(<([^>]+)>)/gi,
     ''
   );
-  gsap.registerPlugin(ScrollTrigger);
+
   const cardRef = useRef(null);
+  const headingSectionRef = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
-    gsap.from('#cardRef', {
+    tl.from(cardRef.current, {
       y: 600,
-      duration: 1,
       scrollTrigger: {
-        trigger: '#test',
+        trigger: '#hero-section',
         scrub: 1,
-        markers: true,
+      },
+    }).from(headingSectionRef.current, {
+      x: 200,
+      opacity: 0,
+      duration: 3,
+      scrollTrigger: {
+        trigger: cardRef.current,
+        scrub: 1,
       },
     });
   }, []);
 
   return (
     <>
-      <AboutCurrencyInfo currencyData={currencyData} />
+      <AboutCurrencyInfoHeroSection currencyData={currencyData} />
       <section
         className="relative container mx-auto flex flex-col"
         ref={cardRef}
-        id="cardRef"
       >
-        {/* 
-        <AboutCryptoCard currencyData={currencyData} /> */}
+        <AboutCryptoCard currencyData={currencyData} cardRef={cardRef} />
         <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
           Market
         </p>
@@ -57,7 +65,9 @@ export default function CurrencyDetails({ currencyData }) {
           </div>
           <div className="w-11/12 md:w-7/12">
             <h5 className="text-xl py-4">Basic Information</h5>
-            <h3 className="text-3xl pb-4">About {currencyData.name}</h3>
+            <h3 className="text-3xl pb-4" ref={headingSectionRef}>
+              About {currencyData.name}
+            </h3>
             <p>{currencyDescription}</p>
           </div>
         </div>
