@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <HomeHeroSection cardsSection={cardsSection} />
       <section
-        className="flex flex-col items-center md:flex-row md:justify-around md:items-stretch md:gap-y-0 gap-y-4 py-40"
+        className="flex flex-col items-center md:flex-row md:justify-around md:items-stretch gap-y-4 md:gap-y-0 py-40"
         ref={cardsSection}
       >
         {infoCardData.map((cardData) => (
