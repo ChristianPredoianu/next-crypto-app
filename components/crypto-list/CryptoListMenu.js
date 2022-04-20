@@ -5,7 +5,7 @@ export default function CryptoListMenu({
   onResetInitialData,
   onSortData,
 }) {
-  const menuItems = [
+  const menuItemsArray = [
     { name: 'Name', reset: 'Reset' },
     {
       name: 'Price',
@@ -53,22 +53,18 @@ export default function CryptoListMenu({
     },
   ];
 
+  const menuItems = menuItemsArray.map((item, index) => (
+    <CryptoListMenuItem
+      key={item.name}
+      index={index}
+      menuItems={item}
+      activeArrow={activeArrow}
+    />
+  ));
   return (
     <>
-      <div className="flex justify-end items-stretch md:justify-between w-11/12 mx-auto px-4">
-        {menuItems.map((item, index) => (
-          <CryptoListMenuItem
-            key={item.name}
-            index={index}
-            name={item.name}
-            reset={item.reset}
-            arrowIdUp={item.arrowIdUp}
-            arrowIdDown={item.arrowIdDown}
-            activeArrow={activeArrow}
-            onSortAscending={() => item.sortAscending(item.arrowIdUp)}
-            onSortDescending={() => item.sortDescending(item.arrowIdDown)}
-          />
-        ))}
+      <div className="flex justify-end items-stretch md:justify-between w-11/12 mx-auto px-4 ">
+        {menuItems}
       </div>
       <div className="w-11/12 pb-3 px-4 mx-auto">
         <button

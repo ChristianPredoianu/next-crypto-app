@@ -1,18 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-export default function CryptoListMenuItem({
-  name,
-  index,
-  arrowIdUp,
-  arrowIdDown,
-  activeArrow,
-  onSortAscending,
-  onSortDescending,
-}) {
+export default function CryptoListMenuItem({ index, menuItems, activeArrow }) {
+  const { name, arrowIdUp, arrowIdDown, sortDescending, sortAscending } =
+    menuItems;
+
   return (
     <div
-      className={`w-full  ${index !== 0 && index !== 1 ? 'hidden' : ''} 
+      className={`w-full ${index !== 0 && index !== 1 ? 'hidden' : ''} 
        md:block`}
     >
       <p>{name}</p>
@@ -26,14 +21,14 @@ export default function CryptoListMenuItem({
           className={`${
             arrowIdUp === activeArrow ? 'text-green-500' : ''
           } cursor-pointer `}
-          onClick={() => onSortAscending(arrowIdUp)}
+          onClick={() => sortAscending(arrowIdUp)}
         />
         <FontAwesomeIcon
           icon={faCaretDown}
           className={`${
             arrowIdDown === activeArrow ? 'text-green-500' : ''
           } cursor-pointer`}
-          onClick={() => onSortDescending(arrowIdDown)}
+          onClick={() => sortDescending(arrowIdDown)}
         />
       </div>
     </div>
