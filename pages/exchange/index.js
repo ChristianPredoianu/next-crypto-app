@@ -15,14 +15,15 @@ export default function ExchangePage({ currencyData }) {
   const listRef = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
-  let q = gsap.utils.selector(cardsSectionRef);
+  const c = gsap.utils.selector(cardsSectionRef);
+  const l = gsap.utils.selector(listRef);
 
   const cryptoCards = topFiveCurrencies.map((currency) => (
     <CryptoCard key={currency.id} currencyData={currency} cardRef={cardRef} />
   ));
 
   useIsomorphicLayoutEffect(() => {
-    const cardsAnimation = gsap.from(q('.card'), {
+    const cardsAnimation = gsap.from(c('.card'), {
       x: 100,
       stagger: 0.25,
       duration: 1,
@@ -34,7 +35,9 @@ export default function ExchangePage({ currencyData }) {
       },
     });
 
-    return () => cardsAnimation.kill();
+    return () => {
+      cardsAnimation.kill();
+    };
   }, []);
 
   return (
@@ -49,10 +52,10 @@ export default function ExchangePage({ currencyData }) {
       >
         {cryptoCards}
       </section>
-      <section className="py-20" ref={listRef}>
+      <section>
         <CryptoList currencyData={currencyData} />
       </section>
-      <div className="text-center">
+      <div className="text-center py-20">
         <ArrowUp sectionRef={listRef} />
       </div>
     </>
