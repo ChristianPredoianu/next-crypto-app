@@ -12,12 +12,12 @@ export default function CryptoInfoListItem({
   name,
   img,
   activeListItem,
-  setActiveItem,
+  onActiveItemHandler,
 }) {
   const nodeRef = useRef(null);
 
-  function activeItemHandler(listItemId) {
-    activeListItem === id ? setActiveItem(null) : setActiveItem(listItemId);
+  function activeItemHandler(id) {
+    onActiveItemHandler(id);
   }
 
   return (

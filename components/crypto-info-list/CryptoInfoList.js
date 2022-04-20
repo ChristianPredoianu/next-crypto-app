@@ -4,6 +4,10 @@ import CryptoInfoListItem from '@/components/crypto-info-list/CryptoInfoListItem
 export default function CryptoInfoList({ currencyData }) {
   const [activeListItem, setActiveListItem] = useState(null);
 
+  function activeItem(listItemId) {
+    setActiveListItem(listItemId);
+  }
+
   return (
     <ul className="flex flex-col px-6 py-16 rounded-3xl shadow-2xl shadow-gray-500">
       {currencyData.map((currency) => (
@@ -14,7 +18,7 @@ export default function CryptoInfoList({ currencyData }) {
           name={currency.name}
           img={currency.image}
           activeListItem={activeListItem}
-          setActiveItem={setActiveListItem}
+          onActiveItemHandler={activeItem}
         />
       ))}
     </ul>

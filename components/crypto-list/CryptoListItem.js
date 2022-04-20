@@ -30,7 +30,7 @@ export default function CryptoListItem({
         </div>
       </div>
       <div className="w-full">
-        <p>{currencyFormatter.format(currencyPrice)}</p>
+        <p>{currencyFormatter(currencyPrice)}</p>
         <p
           className={`md:hidden ${
             currencyChangePercent > 0 ? 'text-green-500' : 'text-red-500'
@@ -47,10 +47,10 @@ export default function CryptoListItem({
         {`${currencyChangePercent > 0 ? '+' : ''}${currencyChangePercent}`}
       </p>
       <p className="hidden w-full md:block ">
-        {currencyFormatter.format(currencyVolume)}
+        {currencyFormatter(currencyVolume)}
       </p>
       <p className="hidden w-full md:block">
-        {currencyFormatter.format(currencyMarketCap)}
+        {currencyFormatter(currencyMarketCap)}
       </p>
     </li>
   );

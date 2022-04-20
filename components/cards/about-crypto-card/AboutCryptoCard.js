@@ -11,7 +11,7 @@ export default function AboutCryptoCard({ currencyData, cardRef }) {
     { title: 'Rank:', data: rank },
     {
       title: 'Price:',
-      data: currencyFormatter.format(market_data.current_price.usd),
+      data: currencyFormatter(market_data.current_price.usd),
     },
     {
       title: 'Price Change:',
@@ -19,15 +19,15 @@ export default function AboutCryptoCard({ currencyData, cardRef }) {
     },
     {
       title: 'Supply:',
-      data: currencyFormatter.format(market_data.circulating_supply),
+      data: currencyFormatter(market_data.circulating_supply),
     },
     {
       title: 'Market Cap:',
-      data: currencyFormatter.format(market_data.market_cap.usd),
+      data: currencyFormatter(market_data.market_cap.usd),
     },
     {
       title: 'Volume:',
-      data: currencyFormatter.format(market_data.total_volume.usd),
+      data: currencyFormatter(market_data.total_volume.usd),
     },
   ];
   return (
