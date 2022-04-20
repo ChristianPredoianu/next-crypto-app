@@ -26,9 +26,16 @@ export default function CryptoInfoListItem({
         activeListItem === id ? 'border-t border-b border-gray-600' : ''
       }`}
     >
-      <div className="flex justify-between items-center py-4">
+      <div className="flex justify-between items-center py-4 ">
         <div className="flex">
-          <Image src={img} alt="crypto" layout="fixed" width={30} height={30} />
+          <Image
+            src={img}
+            alt="crypto"
+            layout="fixed"
+            width={30}
+            height={30}
+            className="dark:bg-gray-200"
+          />
           <p className="ml-4">
             {name}
             <span>{`(${symbol})`}</span>
@@ -59,7 +66,7 @@ export default function CryptoInfoListItem({
           <p>
             More info about{' '}
             <Link href={`/currencyinfo/${id}`}>
-              <a>{name}</a>
+              <a className="text-purple-500"> {name}</a>
             </Link>
           </p>
         </div>
