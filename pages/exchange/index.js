@@ -31,9 +31,10 @@ export default function ExchangePage({ currencyData }) {
         scrub: 1,
         start: '-40% 80%',
         end: '80%',
-        markers: true,
       },
     });
+
+    return () => cardsAnimation.kill();
   }, []);
 
   return (
