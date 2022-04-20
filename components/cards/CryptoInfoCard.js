@@ -3,7 +3,9 @@ import Link from 'next/link';
 import useCurrencyGradient from '@/hooks/useCurrencyGradient';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 
-export default function CryptoInfoCard({ name, id, symbol, img, price }) {
+export default function CryptoInfoCard({ currency }) {
+  const { name, id, symbol, image, current_price } = currency;
+
   const [cardGradient] = useCurrencyGradient(name);
   const [currencyFormatter] = useCurrencyFormatter();
 
@@ -13,7 +15,7 @@ export default function CryptoInfoCard({ name, id, symbol, img, price }) {
         className={`relative py-4 px-4 bg-gradient-to-b ${cardGradient} rounded-t-xl border-b border-gray-500`}
       >
         <Image
-          src={img}
+          src={image}
           alt="crypto"
           layout="fixed"
           width={30}
@@ -24,7 +26,7 @@ export default function CryptoInfoCard({ name, id, symbol, img, price }) {
 
         <div className="absolute w-1/4 bottom-4 right-0 sm:-right-7">
           <Image
-            src={img}
+            src={image}
             alt="crypto"
             layout="responsive"
             width={80}
@@ -36,7 +38,7 @@ export default function CryptoInfoCard({ name, id, symbol, img, price }) {
       </div>
       <div className="relative py-20 bg-gray-200 dark:bg-black dark:border-b dark:border-gray-500 md:px-28">
         <h4 className="absolute w-2/4 bottom-4 -right-3 bg-green-500 rounded-sm p-2 text-right">
-          {`${currencyFormatter.format(price)}`}
+          {`${currencyFormatter(current_price)}`}
         </h4>
       </div>
       <div className="py-4 text-center text-gray-600 dark:text-gray-200">
