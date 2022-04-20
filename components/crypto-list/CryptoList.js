@@ -22,7 +22,7 @@ export default function CryptoList({ currencyData }) {
     setActiveArrow(null);
     setDataToMap(currencyData);
   }
-  console.log(currencyData);
+
   return (
     <>
       <CryptoListMenu
@@ -33,16 +33,7 @@ export default function CryptoList({ currencyData }) {
 
       <ul className="flex flex-col gap-4">
         {dataToMap.map((currency) => (
-          <CryptoListItem
-            key={currency.id}
-            currencyName={currency.name}
-            currencySymbol={currency.symbol}
-            currencyPrice={currency.current_price}
-            currencyImg={currency.image}
-            currencyChangePercent={currency.price_change_percentage_24h}
-            currencyVolume={currency.total_volume}
-            currencyMarketCap={currency.market_cap}
-          />
+          <CryptoListItem key={currency.id} currency={currency} />
         ))}
       </ul>
     </>
