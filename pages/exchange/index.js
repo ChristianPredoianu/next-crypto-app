@@ -16,7 +16,6 @@ export default function ExchangePage({ currencyData }) {
 
   gsap.registerPlugin(ScrollTrigger);
   const c = gsap.utils.selector(cardsSectionRef);
-  const l = gsap.utils.selector(listRef);
 
   const cryptoCards = topFiveCurrencies.map((currency) => (
     <CryptoCard key={currency.id} currencyData={currency} cardRef={cardRef} />
