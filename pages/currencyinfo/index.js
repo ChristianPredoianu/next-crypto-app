@@ -25,14 +25,7 @@ export default function CurrencyInfoPage({ currencyData }) {
         ref={listRef}
       >
         {topFiveCurrencies.map((currency) => (
-          <CryptoInfoCard
-            key={currency.name}
-            name={currency.name}
-            id={currency.id}
-            symbol={currency.symbol}
-            img={currency.image}
-            price={currency.current_price}
-          />
+          <CryptoInfoCard key={currency.name} currency={currency} />
         ))}
       </section>
       <section className="mx-auto py-10 lg:py-64 lg:w-3/4">
