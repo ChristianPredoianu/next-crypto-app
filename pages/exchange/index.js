@@ -10,21 +10,23 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 export default function ExchangePage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
 
-  gsap.registerPlugin(ScrollTrigger);
-  const tl = gsap.timeline({ duration: 1 });
-
   const cardsSectionRef = useRef(null);
   const cardRef = useRef(null);
   const listRef = useRef(null);
 
-  let el = useRef();
+  gsap.registerPlugin(ScrollTrigger);
   let q = gsap.utils.selector(cardsSectionRef);
 
+  const cryptoCards = topFiveCurrencies.map((currency) => (
+    <CryptoCard key={currency.id} currencyData={currency} cardRef={cardRef} />
+  ));
+
   useIsomorphicLayoutEffect(() => {
-    tl.from(q('.card'), {
+    const cardsAnimation = gsap.from(q('.card'), {
       x: 100,
       opacity: 0,
       stagger: 0.25,
+      duration: 1,
       scrollTrigger: {
         trigger: cardsSectionRef.current,
         scrub: 1,
@@ -33,6 +35,9 @@ export default function ExchangePage({ currencyData }) {
         markers: true,
       },
     });
+    return () => {
+      cardsAnimation.kill();
+    };
   }, []);
 
   return (
@@ -45,20 +50,7 @@ export default function ExchangePage({ currencyData }) {
         className="flex flex-wrap justify-center gap-20 md:gap-20 my-20 md:my-32 lg:my-52"
         ref={cardsSectionRef}
       >
-        {topFiveCurrencies.map((currency) => (
-          <CryptoCard
-            key={currency.id}
-            currencyName={currency.name}
-            currencySymbol={currency.symbol}
-            currencyRank={currency.market_cap_rank}
-            currencyImg={currency.image}
-            currencyPrice={currency.current_price}
-            currencyMarketCap={currency.market_cap}
-            currencyVolume={currency.total_volume}
-            currencySupply={currency.circulating_supply}
-            cardRef={cardRef}
-          />
-        ))}
+        {cryptoCards}
       </section>
       <section className="py-20" ref={listRef}>
         <CryptoList currencyData={currencyData} />
