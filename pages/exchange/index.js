@@ -24,7 +24,6 @@ export default function ExchangePage({ currencyData }) {
   useIsomorphicLayoutEffect(() => {
     const cardsAnimation = gsap.from(q('.card'), {
       x: 100,
-
       stagger: 0.25,
       duration: 1,
       scrollTrigger: {
