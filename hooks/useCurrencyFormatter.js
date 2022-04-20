@@ -6,6 +6,7 @@ export default function useCurrencyFormatter() {
       minimumFractionDigits: 0,
       maximumFractionDigits: 6,
     }).format(value);
+
     return formatedNumber;
   }
 
