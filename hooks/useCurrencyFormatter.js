@@ -1,10 +1,13 @@
 export default function useCurrencyFormatter() {
-  const currencyFormatter = new Intl.NumberFormat('en-us', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 6,
-  });
+  function currencyFormatter(value) {
+    const formatedNumber = new Intl.NumberFormat('en-us', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 6,
+    }).format(value);
+    return formatedNumber;
+  }
 
   return [currencyFormatter];
 }
