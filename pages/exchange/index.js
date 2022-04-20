@@ -24,20 +24,17 @@ export default function ExchangePage({ currencyData }) {
   useIsomorphicLayoutEffect(() => {
     const cardsAnimation = gsap.from(q('.card'), {
       x: 100,
-      opacity: 0,
+
       stagger: 0.25,
       duration: 1,
       scrollTrigger: {
         trigger: cardsSectionRef.current,
         scrub: 1,
-        start: 'top bottom',
-        end: '20%',
+        start: '-40% 80%',
+        end: '80%',
         markers: true,
       },
     });
-    return () => {
-      cardsAnimation.kill();
-    };
   }, []);
 
   return (
