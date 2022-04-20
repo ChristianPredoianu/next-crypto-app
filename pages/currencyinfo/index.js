@@ -9,26 +9,29 @@ export default function CurrencyInfoPage({ currencyData }) {
 
   return (
     <>
-      <section className="px-2 py-16 md:py-32 md:w-2/4">
-        <h1 className="text-2xl">
-          Bitcoin and cryptocurrency for{' '}
-          <span className="text-purple-500">beginners</span>
-        </h1>
-        <h2 className="mt-4">
-          Get your information about the basics of cryprocurrencies from us. We
-          take a deep dive into different cryptocurrencies so that you can be
-          informed about them before you invest.
-        </h2>
+      <section className="container mx-auto py-16 md:py-32 ">
+        <div className="w-2/4">
+          <h1 className="text-4xl">
+            Bitcoin and cryptocurrency for{' '}
+            <span className="text-purple-500">beginners</span>
+          </h1>
+          <h2 className="mt-4">
+            Get your information about the basics of cryprocurrencies from us.
+            We take a deep dive into different cryptocurrencies so that you can
+            be informed about them before you invest.
+          </h2>
+        </div>
       </section>
       <section
-        className="flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24"
+        className="container mx-auto flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24"
         ref={listRef}
       >
         {topFiveCurrencies.map((currency) => (
           <CryptoInfoCard key={currency.name} currency={currency} />
         ))}
       </section>
-      <section className="mx-auto py-10 lg:py-64 lg:w-3/4">
+      <section className="container mx-auto py-10 lg:py-64 ">
+        <h3 className="text-center text-4xl pb-20">Currencies</h3>
         <CryptoInfoList currencyData={currencyData} />
         <div className="text-center mt-20 lg:mt-36">
           <ArrowUp sectionRef={listRef} />
