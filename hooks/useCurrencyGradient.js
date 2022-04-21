@@ -10,10 +10,10 @@ export default function useCurrencyGradient(currencyName) {
       break;
 
     case 'Tether':
-      cardGradient = 'bg-green-400';
+      cardGradient = 'from-green-400';
       break;
     case 'BNB':
-      cardGradient = 'bg-yellow-400';
+      cardGradient = 'from-yellow-400';
       break;
     case 'USD Coin':
       cardGradient = 'from-blue-400';
