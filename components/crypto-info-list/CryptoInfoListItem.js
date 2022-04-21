@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CSSTransition } from 'react-transition-group';
@@ -14,10 +15,16 @@ export default function CryptoInfoListItem({
   activeListItem,
   onActiveItemHandler,
 }) {
+  const router = useRouter();
+
   const nodeRef = useRef(null);
 
   function activeItemHandler(id) {
     onActiveItemHandler(id);
+  }
+
+  function goToAboutHandler() {
+    router.push(`/currencyinfo/${id}`);
   }
 
   return (
@@ -64,10 +71,10 @@ export default function CryptoInfoListItem({
       >
         <div ref={nodeRef}>
           <p>
-            More info about{' '}
-            <Link href={`/currencyinfo/${id}`}>
-              <a className="text-purple-500"> {name}</a>
-            </Link>
+            More info about
+            <span className="text-purple-500" onClick={goToAboutHandler}>
+              {name}
+            </span>
           </p>
         </div>
       </CSSTransition>

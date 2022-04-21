@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import Image from 'next/image';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 import AboutCryptoCardList from '@/components/cards/about-crypto-card/AboutCryptoCardList';
 
-export default function AboutCryptoCard({ currencyData, cardRef }) {
-  const { name, symbol, rank, image, market_data } = currencyData;
+export default forwardRef(function AboutCryptoCard(props, ref) {
+  const { name, symbol, rank, image, market_data } = props.currencyData;
 
   const [currencyFormatter] = useCurrencyFormatter();
 
@@ -32,8 +33,8 @@ export default function AboutCryptoCard({ currencyData, cardRef }) {
   ];
   return (
     <div
-      className="glass w-11/12 lg:w-7/12 xl:w-5/12 text-2xl mx-auto text-black dark:text-gray-200 -mt-14 dark:mt-4 py-8"
-      ref={cardRef}
+      className="glass px-50 w-11/12 lg:w-7/12 xl:w-5/12 text-2xl mx-auto text-black dark:text-gray-200 -mt-14 dark:mt-4 py-8 bg-red-500"
+      ref={ref}
     >
       <div className="flex justify-around items-center mt-8">
         <h2 className="text-4xl">{name}</h2>
@@ -51,4 +52,4 @@ export default function AboutCryptoCard({ currencyData, cardRef }) {
       </div>
     </div>
   );
-}
+});

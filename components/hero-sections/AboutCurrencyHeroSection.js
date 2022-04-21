@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import Image from 'next/image';
 import SocialMediaIcon from '@/components/Ui/SocialMediaIcon';
 import BgImage from '../../assets/images/crypto-background.jpg';
@@ -9,8 +10,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
-export default function CurrencyInfoHeroSection({ currencyData }) {
-  const { name, image, links } = currencyData;
+export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
+  const { name, image, links } = props.currencyData;
 
   const icons = [
     {
@@ -31,7 +32,7 @@ export default function CurrencyInfoHeroSection({ currencyData }) {
     <>
       <section
         className="relative flex text-gray-200 py-20 bg-bottom bg-no-repeat bg-cover"
-        id="hero-section"
+        ref={ref}
         style={{
           backgroundImage: `url(${BgImage.src})`,
         }}
@@ -68,4 +69,4 @@ export default function CurrencyInfoHeroSection({ currencyData }) {
       </section>
     </>
   );
-}
+});

@@ -1,5 +1,5 @@
 import Nav from '@/components/nav/Nav';
-import ProgressBar from '../Ui/ProgressBar';
+import ProgressBar from '@/components/Ui/ProgressBar';
 
 export default function Layout({ children }) {
   return (

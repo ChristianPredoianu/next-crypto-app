@@ -15,7 +15,7 @@ export default function CryptoCard({ currencyData, cardRef }) {
   } = currencyData;
 
   const [currencyFormatter] = useCurrencyFormatter();
-  const cardGradient = useCurrencyGradient(name);
+  const [cardGradient] = useCurrencyGradient(name);
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function CryptoCard({ currencyData, cardRef }) {
         ref={cardRef}
       >
         <div
-          className={`relative py-20 px-20 bg-gradient-to-b ${cardGradient}to-gray-200 shadow-lg shadow-gray-400 dark:shadow-sm sm:py-32`}
+          className={`relative py-20 px-20 bg-gradient-to-b ${cardGradient} to-gray-200 shadow-lg shadow-gray-400 dark:shadow-sm sm:py-32`}
         >
           <p className="absolute bottom-2 right-2 text-4xl text-gray-600 opacity-60  ">
             {symbol.toUpperCase()}
