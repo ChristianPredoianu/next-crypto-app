@@ -9,7 +9,6 @@ import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
   gsap.registerPlugin(ScrollTrigger);
-  const tl = gsap.timeline({ duration: 1 });
 
   const currencyDescription = currencyData.description.en.replace(
     /(<([^>]+)>)/gi,
@@ -17,39 +16,50 @@ export default function CurrencyDetails({ currencyData }) {
   );
 
   const cardRef = useRef(null);
-  const headingSectionRef = useRef(null);
+  const heroSectionRef = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
-    tl.from(cardRef.current, {
-      y: 600,
+    const animation = gsap.from(cardRef.current, {
+      y: 300,
+      duration: 1,
       scrollTrigger: {
-        trigger: '#hero-section',
+        trigger: heroSectionRef.current,
         scrub: 1,
-      },
-    }).from(headingSectionRef.current, {
-      x: 200,
-      opacity: 0,
-      duration: 3,
-      scrollTrigger: {
-        trigger: cardRef.current,
-        scrub: 1,
+        markers: true,
+        start: 'top top',
       },
     });
+    /*  .from(headingSectionRef.current, {
+        x: 200,
+        opacity: 0,
+        duration: 3,
+        scrollTrigger: {
+          trigger: cardRef.current,
+          scrub: 1,
+        },
+      }); */
+
+    /*    console.log('animatrion mounted'); */
+
+    return () => {
+      animation.scrollTrigger.kill();
+      console.log('animation kill');
+    };
   }, []);
 
   return (
     <>
-      <AboutCurrencyInfoHeroSection currencyData={currencyData} />
-      <section
-        className="relative container mx-auto flex flex-col"
-        ref={cardRef}
-      >
-        <AboutCryptoCard currencyData={currencyData} cardRef={cardRef} />
-        <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
+      <AboutCurrencyInfoHeroSection
+        currencyData={currencyData}
+        ref={heroSectionRef}
+      />
+      <section className="container mx-auto flex flex-col">
+        <AboutCryptoCard currencyData={currencyData} ref={cardRef} />
+        {/*  <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
           Market
-        </p>
+        </p> */}
       </section>
-      <section className="container mx-auto flex mt-40 sm:mt-64 xl:py-40">
+      <section className="container mx-auto flex ">
         <div className="flex flex-col md:flex-row justify-around items-center">
           <div className="w-3/6 md:w-2/6 pb-10 md:pb-0">
             <h3 className="text-center text-4xl pb-10 md:pb-0">
@@ -65,9 +75,7 @@ export default function CurrencyDetails({ currencyData }) {
           </div>
           <div className="w-11/12 md:w-7/12">
             <h5 className="text-xl py-4">Basic Information</h5>
-            <h3 className="text-3xl pb-4" ref={headingSectionRef}>
-              About {currencyData.name}
-            </h3>
+            <h3 className="text-3xl pb-4">About {currencyData.name}</h3>
             <p>{currencyDescription}</p>
           </div>
         </div>
