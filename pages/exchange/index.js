@@ -30,12 +30,12 @@ export default function ExchangePage({ currencyData }) {
         trigger: cardsSectionRef.current,
         scrub: 1,
         start: '-40% 80%',
-        end: '80%',
+        end: 'bottom 50%',
       },
     });
 
     return () => {
-      cardsAnimation.kill();
+      cardsAnimation.scrollTrigger.kill();
     };
   }, []);
 
@@ -46,15 +46,16 @@ export default function ExchangePage({ currencyData }) {
         Top 5 cryptocurrencies
       </h2>
       <section
-        className="flex flex-wrap justify-center gap-20 md:gap-20 my-20 md:my-32 lg:my-52"
+        className="container mx-auto flex flex-wrap justify-center gap-20 md:gap-20 my-20 md:my-32 lg:my-52"
         ref={cardsSectionRef}
       >
         {cryptoCards}
       </section>
-      <section>
+      <section className="mt-64">
+        <h3 className="text-center text-4xl pb-20">Market</h3>
         <CryptoList currencyData={currencyData} />
       </section>
-      <div className="text-center py-20">
+      <div className="text-center pt-20">
         <ArrowUp sectionRef={listRef} />
       </div>
     </>
