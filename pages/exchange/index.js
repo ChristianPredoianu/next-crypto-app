@@ -56,7 +56,7 @@ export default function ExchangePage({ currencyData }) {
         <CryptoList currencyData={currencyData} />
       </section>
       <div className="text-center pt-20">
-        <ArrowUp sectionRef={listRefs} />
+        <ArrowUp sectionRef={listRef} />
       </div>
     </>
   );
