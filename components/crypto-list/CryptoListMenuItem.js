@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
 
 export default function CryptoListMenuItem({ index, menuItems, activeArrow }) {
   const { name, arrowIdUp, arrowIdDown, sortDescending, sortAscending } =
@@ -18,16 +19,16 @@ export default function CryptoListMenuItem({ index, menuItems, activeArrow }) {
       >
         <FontAwesomeIcon
           icon={faCaretUp}
-          className={`${
-            arrowIdUp === activeArrow ? 'text-green-500' : ''
-          } cursor-pointer `}
+          className={classNames('cursor-pointer', {
+            'text-green-500': arrowIdUp === activeArrow,
+          })}
           onClick={() => sortAscending(arrowIdUp)}
         />
         <FontAwesomeIcon
           icon={faCaretDown}
-          className={`${
-            arrowIdDown === activeArrow ? 'text-green-500' : ''
-          } cursor-pointer`}
+          className={classNames('cursor-pointer', {
+            'text-green-500': arrowIdDown === activeArrow,
+          })}
           onClick={() => sortDescending(arrowIdDown)}
         />
       </div>
