@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import useCurrencyGradient from '@/hooks/useCurrencyGradient';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
+import classNames from 'classnames';
 
 export default function CryptoCard({ currencyData }) {
   const {
@@ -21,7 +22,18 @@ export default function CryptoCard({ currencyData }) {
     <>
       <div className="card flex flex-col items-center sm:flex sm:flex-row">
         <div
-          className={`relative py-20 px-20 bg-gradient-to-b ${cardGradient} to-gray-200 shadow-lg shadow-gray-400 dark:shadow-sm sm:py-32`}
+          className={classNames(
+            'relative',
+            'py-20',
+            'px-20',
+            'bg-gradient-to-b',
+            { [`${cardGradient}`]: true },
+            'to-gray-200',
+            'shadow-lg',
+            'shadow-gray-400',
+            'dark:shadow-sm',
+            'sm:py-32'
+          )}
         >
           <p className="absolute bottom-2 right-2 text-4xl text-gray-600 opacity-60  ">
             {symbol.toUpperCase()}
