@@ -34,7 +34,7 @@ export default function CurrencyInfoPage({ currencyData }) {
   return (
     <>
       <section
-        className="container mx-auto py-16 md:py-32"
+        className="container mx-auto px-4 py-16 md:py-32"
         ref={heroSectionRef}
       >
         <div className="w-2/4">
