@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -9,11 +10,17 @@ import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
   gsap.registerPlugin(ScrollTrigger);
+  const router = useRouter();
 
-  const currencyDescription = currencyData.description.en.replace(
-    /(<([^>]+)>)/gi,
-    ''
-  );
+  console.log(router);
+
+  let currencyDescription;
+  console.log(currencyData);
+  /*   if (currencyData.description.en === '') {
+    currencyDescription = 'No information avaliable about this Crypto Currency';
+  } else {
+    currencyDescription = currencyData.description.en.replace(/(<([^>]+)>)/gi);
+  } */
 
   const cardRef = useRef(null);
   const heroSectionRef = useRef(null);
@@ -25,11 +32,11 @@ export default function CurrencyDetails({ currencyData }) {
         trigger: heroSectionRef.current,
         scrub: 1,
         start: 'top top',
-        end: '190%',
+        end: '150%',
       },
     });
     tl.from(cardRef.current, { y: 300, duration: 1 });
-    tl.from(aboutHeadingRef.current, { x: 200, stagger: 3, opacity: 0 });
+    tl.from(aboutHeadingRef.current, { x: 100, opacity: 0 });
 
     return () => {
       tl.scrollTrigger.kill();

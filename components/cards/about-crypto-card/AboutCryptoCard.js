@@ -39,7 +39,7 @@ export default forwardRef(function AboutCryptoCard(props, ref) {
       ref={ref}
     >
       <div className="flex justify-around items-center mt-8">
-        <h2 className="text-4xl">{name}</h2>
+        <h2 className="text-3xl">{name}</h2>
         <Image
           src={image.large}
           alt="crypto"

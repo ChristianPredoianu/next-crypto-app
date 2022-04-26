@@ -73,7 +73,10 @@ export default function CryptoInfoListItem({
         <div ref={nodeRef}>
           <p>
             More info about
-            <span className="text-purple-500" onClick={goToAboutHandler}>
+            <span
+              className="text-purple-500 cursor-pointer"
+              onClick={goToAboutHandler}
+            >
               {' '}
               {name}
             </span>

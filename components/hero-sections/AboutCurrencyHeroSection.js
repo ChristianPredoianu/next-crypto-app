@@ -41,7 +41,7 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
           backgroundImage: `url(${BgImage.src})`,
         }}
       >
-        <div className="container flex flex-col md:flex-row md:justify-around items-center mx-auto py-20">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row md:justify-around items-center py-20">
           {/* Overlay */}
           <div className="absolute inset-0 z-10 w-full h-full bg-slate-800 dark:bg-clr-dark-theme opacity-30 dark:opacity-70"></div>
           <div className="relative z-20 py-10">

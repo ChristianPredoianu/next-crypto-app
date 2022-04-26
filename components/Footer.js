@@ -9,7 +9,7 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           Coingecko.com
-        </a>{' '}
+        </a>
       </p>
     </footer>
   );
