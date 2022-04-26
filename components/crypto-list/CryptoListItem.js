@@ -49,7 +49,7 @@ export default memo(function CryptoListItem({ currency }) {
       >
         {`${
           price_change_percentage_24h > 0 ? '+' : ''
-        }${price_change_percentage_24h}`}
+        }${price_change_percentage_24h} %`}
       </p>
       <p className="hidden w-full md:block ">
         {currencyFormatter(total_volume)}

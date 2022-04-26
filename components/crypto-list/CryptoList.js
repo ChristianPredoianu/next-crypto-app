@@ -23,7 +23,7 @@ export default function CryptoList({ currencyData }) {
     setDataToMap(currencyData);
   }
 
-  const cryptoListItem = dataToMap.map((currency) => (
+  const cryptoListItems = dataToMap.map((currency) => (
     <CryptoListItem key={currency.id} currency={currency} />
   ));
 
@@ -34,7 +34,7 @@ export default function CryptoList({ currencyData }) {
         onResetInitialData={resetInitialDataHandler}
         onSortData={sortDataHandler}
       />
-      <ul className="flex flex-col gap-4">{cryptoListItem}</ul>
+      <ul className="flex flex-col gap-4">{cryptoListItems}</ul>
     </>
   );
 }
