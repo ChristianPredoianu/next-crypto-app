@@ -55,10 +55,10 @@ export default function CurrencyInfoPage({ currencyData }) {
       >
         {cryptoCards}
       </section>
-      <section className="container mx-auto py-10 lg:py-64" ref={listRef}>
+      <section className="container mx-auto py-10 lg:pt-64" ref={listRef}>
         <h3 className="text-center text-4xl pb-20">Currencies</h3>
         <CryptoInfoList currencyData={currencyData} />
-        <div className="text-center mt-20 lg:mt-36">
+        <div className="text-center py-20 lg:mt-36">
           <ArrowUp sectionRef={listRef} />
         </div>
       </section>

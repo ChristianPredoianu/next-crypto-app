@@ -53,7 +53,7 @@ export default function ExchangePage({ currencyData }) {
         <h3 className="text-center text-4xl pb-20">Market</h3>
         <CryptoList currencyData={currencyData} />
       </section>
-      <div className="text-center pt-20">
+      <div className="text-center py-20">
         <ArrowUp sectionRef={listRef} />
       </div>
     </>
