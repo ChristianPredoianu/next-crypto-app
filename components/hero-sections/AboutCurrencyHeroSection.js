@@ -28,6 +28,10 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
     { name: 'reddit', icon: faReddit, url: links.subreddit_url },
   ];
 
+  const socialMediaIcons = icons.map((icon) => (
+    <SocialMediaIcon key={icon.name} icon={icon.icon} url={icon.url} />
+  ));
+
   return (
     <>
       <section
@@ -43,13 +47,7 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
           <div className="relative z-20 py-10">
             {<h1 className="text-4xl">{`Discover ${name}`}</h1>}
             <div className="flex justify-around items-center py-10 text-3xl text-white">
-              {icons.map((icon) => (
-                <SocialMediaIcon
-                  key={icon.name}
-                  icon={icon.icon}
-                  url={icon.url}
-                />
-              ))}
+              {socialMediaIcons}
             </div>
             <button className="p-4 glass-btn rounded transition duration-150 hover:bg-indigo-800">
               About {name}
@@ -62,7 +60,6 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
               layout="responsive"
               width={150}
               height={150}
-              priority
             />
           </div>
         </div>
