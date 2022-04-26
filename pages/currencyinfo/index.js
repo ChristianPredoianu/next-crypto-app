@@ -2,14 +2,41 @@ import { useRef } from 'react';
 import CryptoInfoCard from '@/components/cards/CryptoInfoCard';
 import CryptoInfoList from '@/components/crypto-info-list/CryptoInfoList';
 import ArrowUp from '@/components/Ui/ArrowUp';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
 
 export default function CurrencyInfoPage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
+
+  const heroSectionRef = useRef(null);
   const listRef = useRef(null);
+  const cardsSectionRef = useRef(null);
+
+  const c = gsap.utils.selector(cardsSectionRef);
+
+  const cryptoCards = topFiveCurrencies.map((currency) => (
+    <CryptoInfoCard key={currency.name} currency={currency} />
+  ));
+
+  useIsomorphicLayoutEffect(() => {
+    const cardsAnimation = gsap.from(c('.cryptoInfoCard'), {
+      y: 100,
+      opacity: 0,
+      stagger: 0.25,
+      duration: 1,
+    });
+
+    return () => {
+      cardsAnimation.kill();
+    };
+  }, []);
 
   return (
     <>
-      <section className="container mx-auto py-16 md:py-32 ">
+      <section
+        className="container mx-auto py-16 md:py-32"
+        ref={heroSectionRef}
+      >
         <div className="w-2/4">
           <h1 className="text-4xl">
             Bitcoin and cryptocurrency for{' '}
@@ -24,13 +51,11 @@ export default function CurrencyInfoPage({ currencyData }) {
       </section>
       <section
         className="container mx-auto flex flex-col md:flex-row items-center flex-wrap gap-y-10 md:gap-16 md:justify-around py-10 lg:py-24"
-        ref={listRef}
+        ref={cardsSectionRef}
       >
-        {topFiveCurrencies.map((currency) => (
-          <CryptoInfoCard key={currency.name} currency={currency} />
-        ))}
+        {cryptoCards}
       </section>
-      <section className="container mx-auto py-10 lg:py-64 ">
+      <section className="container mx-auto py-10 lg:py-64" ref={listRef}>
         <h3 className="text-center text-4xl pb-20">Currencies</h3>
         <CryptoInfoList currencyData={currencyData} />
         <div className="text-center mt-20 lg:mt-36">

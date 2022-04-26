@@ -10,7 +10,7 @@ export default function CryptoInfoCard({ currency }) {
   const [currencyFormatter] = useCurrencyFormatter();
 
   return (
-    <div className="shadow-lg shadow-gray-500 dark:shadow-slate-800 w-2/3 sm:w-2/4 md:w-2/5 lg:w-min rounded-xl">
+    <div className="cryptoInfoCard shadow-lg shadow-gray-500 dark:shadow-slate-800 w-2/3 sm:w-2/4 md:w-2/5 lg:w-min rounded-xl">
       <div
         className={`relative py-4 px-4 bg-gradient-to-b ${cardGradient} rounded-t-xl border-b border-gray-500`}
       >
