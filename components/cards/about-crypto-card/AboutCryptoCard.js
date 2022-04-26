@@ -4,12 +4,14 @@ import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 import AboutCryptoCardList from '@/components/cards/about-crypto-card/AboutCryptoCardList';
 
 export default forwardRef(function AboutCryptoCard(props, ref) {
-  const { name, symbol, rank, image, market_data } = props.currencyData;
+  const { name, symbol, coingecko_rank, image, market_data } =
+    props.currencyData;
 
   const [currencyFormatter] = useCurrencyFormatter();
+  console.log(props.currencyData);
 
   const market = [
-    { title: 'Rank:', data: rank },
+    { title: 'Rank:', data: coingecko_rank },
     {
       title: 'Price:',
       data: currencyFormatter(market_data.current_price.usd),
