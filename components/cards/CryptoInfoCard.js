@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useCurrencyGradient from '@/hooks/useCurrencyGradient';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
+import classNames from 'classnames';
 
 export default function CryptoInfoCard({ currency }) {
   const { name, id, symbol, image, current_price } = currency;
@@ -12,7 +13,18 @@ export default function CryptoInfoCard({ currency }) {
   return (
     <div className="cryptoInfoCard shadow-lg shadow-gray-500 dark:shadow-slate-800 dark:shadow-sm w-2/3 sm:w-2/4 md:w-2/5 lg:w-min rounded-xl">
       <div
-        className={`relative py-4 px-4 bg-gradient-to-b ${cardGradient} to-gray-500 rounded-t-xl border-b border-gray-500`}
+        className={classNames(
+          'relative',
+          'py-4',
+          'px-4',
+          'bg-gradient-to-b',
+          { [`${cardGradient}`]: true },
+          'to-gray-200',
+          'dark: to-gray-500',
+          'rounded-t-xl',
+          'border-b',
+          'border-gray-500'
+        )}
       >
         <Image
           src={image}
@@ -44,7 +56,15 @@ export default function CryptoInfoCard({ currency }) {
       <div className="py-4 text-center text-gray-600 dark:text-gray-200">
         <Link href={`/currencyinfo/${id}`}>
           <button
-            className={`bg-gradient-to-r ${cardGradient} text-center py-2 px-4 border border-gray-500`}
+            className={classNames(
+              'bg-gradient-to-r',
+              { [`${cardGradient}`]: true },
+              'text-center',
+              'py-2',
+              'px-4',
+              'border',
+              'border-gray-500'
+            )}
           >
             More Info
           </button>
