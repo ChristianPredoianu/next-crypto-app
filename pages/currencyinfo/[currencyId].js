@@ -17,33 +17,23 @@ export default function CurrencyDetails({ currencyData }) {
 
   const cardRef = useRef(null);
   const heroSectionRef = useRef(null);
+  const aboutHeadingRef = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
-    const animation = gsap.from(cardRef.current, {
-      y: 300,
-      duration: 1,
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroSectionRef.current,
         scrub: 1,
         markers: true,
         start: 'top top',
+        end: '190%',
       },
     });
-    /*  .from(headingSectionRef.current, {
-        x: 200,
-        opacity: 0,
-        duration: 3,
-        scrollTrigger: {
-          trigger: cardRef.current,
-          scrub: 1,
-        },
-      }); */
-
-    /*    console.log('animatrion mounted'); */
+    tl.from(cardRef.current, { y: 300, duration: 1 });
+    tl.from(aboutHeadingRef.current, { x: 200, stagger: 3, opacity: 0 });
 
     return () => {
-      animation.scrollTrigger.kill();
-      console.log('animation kill');
+      tl.scrollTrigger.kill();
     };
   }, []);
 
@@ -55,11 +45,11 @@ export default function CurrencyDetails({ currencyData }) {
       />
       <section className="container mx-auto flex flex-col">
         <AboutCryptoCard currencyData={currencyData} ref={cardRef} />
-        {/*  <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
+        <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
           Market
-        </p> */}
+        </p>
       </section>
-      <section className="container mx-auto flex ">
+      <section className="container mx-auto flex py-40 md:py-64">
         <div className="flex flex-col md:flex-row justify-around items-center">
           <div className="w-3/6 md:w-2/6 pb-10 md:pb-0">
             <h3 className="text-center text-4xl pb-10 md:pb-0">
@@ -75,7 +65,9 @@ export default function CurrencyDetails({ currencyData }) {
           </div>
           <div className="w-11/12 md:w-7/12">
             <h5 className="text-xl py-4">Basic Information</h5>
-            <h3 className="text-3xl pb-4">About {currencyData.name}</h3>
+            <h3 className="text-3xl pb-4" ref={aboutHeadingRef}>
+              About {currencyData.name}
+            </h3>
             <p>{currencyDescription}</p>
           </div>
         </div>

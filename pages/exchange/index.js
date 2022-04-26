@@ -11,21 +11,17 @@ export default function ExchangePage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
 
   const cardsSectionRef = useRef(null);
-  const cardRef = useRef(null);
   const listRef = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
   const c = gsap.utils.selector(cardsSectionRef);
 
   const cryptoCards = topFiveCurrencies.map((currency) => (
-    <CryptoCard key={currency.id} currencyData={currency} cardRef={cardRef} />
+    <CryptoCard key={currency.id} currencyData={currency} />
   ));
 
   useIsomorphicLayoutEffect(() => {
-    const cardsAnimation = gsap.from(c('.card'), {
-      x: 100,
-      stagger: 0.25,
-      duration: 1,
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cardsSectionRef.current,
         scrub: 1,
@@ -34,8 +30,10 @@ export default function ExchangePage({ currencyData }) {
       },
     });
 
+    tl.from(c('.card'), { x: 100, stagger: 0.25, duration: 1 });
+
     return () => {
-      cardsAnimation.scrollTrigger.kill();
+      tl.scrollTrigger.kill();
     };
   }, []);
 
