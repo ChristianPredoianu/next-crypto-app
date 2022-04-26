@@ -21,7 +21,7 @@ export default function CryptoInfoList({ currencyData }) {
   ));
 
   return (
-    <ul className="flex flex-col px-6 py-16 rounded-3xl shadow-2xl shadow-gray-500">
+    <ul className="flex flex-col px-6 py-16 rounded-3xl shadow-2xl dark:shadow-sm  shadow-gray-500 dark:shadow-gray-200">
       {cryptoInfoListItem}
     </ul>
   );

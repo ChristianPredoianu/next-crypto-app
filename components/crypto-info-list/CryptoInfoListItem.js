@@ -6,6 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/crypto-info-list/CryptoInfoListItem.module.css';
+import classNames from 'classnames';
 
 export default function CryptoInfoListItem({
   id,
@@ -29,9 +30,9 @@ export default function CryptoInfoListItem({
 
   return (
     <li
-      className={`p-4 ${
-        activeListItem === id ? 'border-t border-b border-gray-600' : ''
-      }`}
+      className={classNames('p-4', {
+        'border-t border-b border-gray-600': activeListItem === id,
+      })}
     >
       <div className="flex justify-between items-center py-4 ">
         <div className="flex">
