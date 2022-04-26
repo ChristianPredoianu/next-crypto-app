@@ -73,6 +73,7 @@ export default function CryptoInfoListItem({
           <p>
             More info about
             <span className="text-purple-500" onClick={goToAboutHandler}>
+              {' '}
               {name}
             </span>
           </p>

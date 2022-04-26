@@ -5,7 +5,7 @@ import Menu from '@/components/nav/Menu';
 export default function Nav() {
   return (
     <>
-      <header className="w-full container mx-auto px-4 py-6">
+      <header className="w-full container mx-auto px-4 py-6 dark:bg-clr-dark-theme">
         <nav className="w-full flex justify-between items-center flex-wrap py-2">
           <NavLogo />
           <DarkModeToggler />

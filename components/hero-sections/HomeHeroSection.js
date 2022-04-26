@@ -19,7 +19,7 @@ export default function HomeHeroSection({ cardsSection }) {
   return (
     <section className="container mx-auto">
       <div
-        className="flex flex-col items-center md:flex-row md:justify-around my-20 md:my-48 xl:my-64"
+        className="flex flex-col items-center md:flex-row md:justify-around py-20 md:py-48 xl:py-64"
         ref={ctaContainer}
       >
         <div className="flex flex-col items-center">
