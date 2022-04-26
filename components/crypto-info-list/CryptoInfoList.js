@@ -8,19 +8,21 @@ export default function CryptoInfoList({ currencyData }) {
     setActiveListItem(listItemId);
   }
 
+  const cryptoInfoListItem = currencyData.map((currency) => (
+    <CryptoInfoListItem
+      key={currency.name}
+      id={currency.id}
+      symbol={currency.symbol}
+      name={currency.name}
+      img={currency.image}
+      activeListItem={activeListItem}
+      onActiveItemHandler={activeItem}
+    />
+  ));
+
   return (
     <ul className="flex flex-col px-6 py-16 rounded-3xl shadow-2xl shadow-gray-500">
-      {currencyData.map((currency) => (
-        <CryptoInfoListItem
-          key={currency.name}
-          id={currency.id}
-          symbol={currency.symbol}
-          name={currency.name}
-          img={currency.image}
-          activeListItem={activeListItem}
-          onActiveItemHandler={activeItem}
-        />
-      ))}
+      {cryptoInfoListItem}
     </ul>
   );
 }
