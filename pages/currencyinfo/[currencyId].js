@@ -24,7 +24,6 @@ export default function CurrencyDetails({ currencyData }) {
       scrollTrigger: {
         trigger: heroSectionRef.current,
         scrub: 1,
-        markers: true,
         start: 'top top',
         end: '190%',
       },
