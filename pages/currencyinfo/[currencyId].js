@@ -15,12 +15,12 @@ export default function CurrencyDetails({ currencyData }) {
   console.log(router);
 
   let currencyDescription;
-  console.log(currencyData);
-  /*   if (currencyData.description.en === '') {
+
+  if (currencyData.description.en === '') {
     currencyDescription = 'No information avaliable about this Crypto Currency';
   } else {
     currencyDescription = currencyData.description.en.replace(/(<([^>]+)>)/gi);
-  } */
+  }
 
   const cardRef = useRef(null);
   const heroSectionRef = useRef(null);
