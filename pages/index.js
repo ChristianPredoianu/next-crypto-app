@@ -23,6 +23,10 @@ export default function Home() {
           content="Your accurate cryptocurrency data and information"
           key="title"
         />
+        <meta
+          name="description"
+          content="Your accurate cryptocurrency data and information"
+        ></meta>
       </Head>
       <HomeHeroSection cardsSection={cardsSection} />
       <section
