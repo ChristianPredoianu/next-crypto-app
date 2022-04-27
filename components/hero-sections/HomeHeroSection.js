@@ -2,9 +2,9 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
 import WatchImg from '@/assets/images/watch.png';
 import ArrowDown from '@/components/Ui/ArrowDown';
-import { gsap } from 'gsap';
 
 export default function HomeHeroSection({ cardsSection }) {
   const ctaContainer = useRef(null);
