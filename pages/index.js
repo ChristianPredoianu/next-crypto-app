@@ -17,7 +17,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Next Crypto App</title>
+        <title>Next Crypto App | Home</title>
+        <meta
+          property="og:title"
+          content="Your accurate cryptocurrency data and information"
+          key="title"
+        />
       </Head>
       <HomeHeroSection cardsSection={cardsSection} />
       <section

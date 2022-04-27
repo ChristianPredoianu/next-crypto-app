@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Head from 'next/head';
 import ExchangeHeroSection from '@/components/hero-sections/ExchangeHeroSection';
 import CryptoCard from '@/components/cards/CryptoCard';
 import CryptoList from '@/components/crypto-list/CryptoList';
@@ -39,6 +40,14 @@ export default function ExchangePage({ currencyData }) {
 
   return (
     <>
+      <Head>
+        <title>Next Crypto App | Exchange</title>
+        <meta
+          property="og:title"
+          content="Information about cryptocurrency exchange"
+          key="title"
+        />
+      </Head>
       <ExchangeHeroSection listRef={cardsSectionRef} />
       <h2 className="text-2xl text-center md:text-4xl lg:text-5xl pt-20 md:pt-40 lg:pt-64">
         Top 5 cryptocurrencies

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { gsap } from 'gsap';
@@ -11,8 +11,7 @@ import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
   gsap.registerPlugin(ScrollTrigger);
-  const router = useRouter();
-  console.log(router);
+
   const cardRef = useRef(null);
   const heroSectionRef = useRef(null);
   const aboutHeadingRef = useRef(null);
@@ -50,6 +49,14 @@ export default function CurrencyDetails({ currencyData }) {
 
   return (
     <>
+      <Head>
+        <title>{`Next Crypto App | ${currencyData.name}`}</title>
+        <meta
+          property="og:title"
+          content={`Information about ${currencyData.name}`}
+          key="title"
+        />
+      </Head>
       <AboutCurrencyInfoHeroSection
         currencyData={currencyData}
         onScrollToAboutSection={scrollToAboutSectionHandler}

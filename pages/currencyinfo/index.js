@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Head from 'next/head';
 import CryptoInfoCard from '@/components/cards/CryptoInfoCard';
 import CryptoInfoList from '@/components/crypto-info-list/CryptoInfoList';
 import ArrowUp from '@/components/Ui/ArrowUp';
@@ -33,6 +34,10 @@ export default function CurrencyInfoPage({ currencyData }) {
 
   return (
     <>
+      <Head>
+        <title>Next Crypto App | Currency Info</title>
+        <meta property="og:title" content="Currency Information" key="title" />
+      </Head>
       <section
         className="container mx-auto px-4 py-16 md:py-32"
         ref={heroSectionRef}
