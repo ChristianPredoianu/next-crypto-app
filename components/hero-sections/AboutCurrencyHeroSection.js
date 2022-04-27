@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import Image from 'next/image';
 import SocialMediaIcon from '@/components/Ui/SocialMediaIcon';
-import BgImage from '../../assets/images/crypto-background.jpg';
+import BgImage from '@/assets/images/crypto-background.jpg';
 
 import {
   faFacebook,
