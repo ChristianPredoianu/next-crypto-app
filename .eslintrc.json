@@ -1,6 +1,1 @@
-{
-  "extends": ["next/babel", "next/core-web-vitals"]
-}
-{
-  "parser": "babel-eslint"
- }
+{ "parser": "babel-eslint" }
