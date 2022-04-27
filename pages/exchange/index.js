@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 import Head from 'next/head';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ExchangeHeroSection from '@/components/hero-sections/ExchangeHeroSection';
 import CryptoCard from '@/components/cards/CryptoCard';
 import CryptoList from '@/components/crypto-list/CryptoList';
 import ArrowUp from '@/components/Ui/ArrowUp';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export default function ExchangePage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
