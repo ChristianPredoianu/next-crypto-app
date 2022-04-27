@@ -7,8 +7,7 @@ export default function AboutCryptoCardList({ market }) {
         <AboutCryptoCardListItem
           key={coinMarket.title}
           index={index}
-          title={coinMarket.title}
-          data={coinMarket.data}
+          coinMarket={coinMarket}
         />
       ))}
     </ul>
