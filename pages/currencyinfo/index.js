@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import Head from 'next/head';
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { gsap } from 'gsap';
 import CurrencyInfoHeroSection from '@/components/hero-sections/CurrencyInfoHeroSection';
 import CryptoInfoCard from '@/components/cards/CryptoInfoCard';
 import CryptoInfoList from '@/components/crypto-info-list/CryptoInfoList';
 import ArrowUp from '@/components/Ui/ArrowUp';
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
-import { gsap } from 'gsap';
 
 export default function CurrencyInfoPage({ currencyData }) {
   const topFiveCurrencies = currencyData.slice(0, 5);
