@@ -45,7 +45,6 @@ export default function CryptoCard({ currencyData }) {
               layout="responsive"
               width={107}
               height={100}
-              priority
             />
           </div>
         </div>
