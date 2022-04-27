@@ -4,7 +4,7 @@ export default function AboutCryptoCardListItem({ title, data, index }) {
   let color;
 
   data < 0 ? (color = 'text-red-500') : (color = 'text-green-500');
-  console.log(data);
+
   return (
     <li className="border-b border-b-gray-500">
       <div className="px-2">

@@ -8,7 +8,6 @@ export default forwardRef(function AboutCryptoCard(props, ref) {
     props.currencyData;
 
   const [currencyFormatter] = useCurrencyFormatter();
-  console.log(props.currencyData);
 
   const market = [
     { title: 'Rank:', data: coingecko_rank },
