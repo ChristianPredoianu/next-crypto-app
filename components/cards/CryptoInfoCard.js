@@ -54,7 +54,7 @@ export default function CryptoInfoCard({ currency }) {
         </h4>
       </div>
       <div className="py-4 text-center text-gray-600 dark:text-gray-200">
-        <Link href={`/currencyinfo/${id}`}>
+        <Link href={`/currencyinfo/${id}`} passHref>
           <button
             className={classNames(
               'bg-gradient-to-r',
