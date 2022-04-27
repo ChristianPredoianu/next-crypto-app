@@ -42,7 +42,7 @@ export default function CurrencyInfoPage({ currencyData }) {
         className="container mx-auto px-4 py-16 md:py-32"
         ref={heroSectionRef}
       >
-        <div className="w-2/4">
+        <div className="md:w-2/4">
           <h1 className="text-4xl">
             Bitcoin and cryptocurrency for{' '}
             <span className="text-purple-500">beginners</span>
@@ -60,8 +60,8 @@ export default function CurrencyInfoPage({ currencyData }) {
       >
         {cryptoCards}
       </section>
-      <section className="container mx-auto py-10 lg:pt-64" ref={listRef}>
-        <h3 className="text-center text-4xl pb-20">Currencies</h3>
+      <section className="container mx-auto " ref={listRef}>
+        <h3 className="text-center text-4xl py-40">Currencies</h3>
         <CryptoInfoList currencyData={currencyData} />
         <div className="text-center py-20 lg:mt-36">
           <ArrowUp sectionRef={listRef} />
