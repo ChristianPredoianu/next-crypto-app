@@ -51,7 +51,7 @@ export default function CryptoCard({ currencyData }) {
         <div className="w-full px-10 py-4 mt-6 font-extralight text-gray-900 dark:text-gray-300 shadow-lg shadow-gray-400 dark:shadow-sm dark:shadow-gray-600 sm:mt-0">
           <div className="py-2">
             <h2 className="text-2xl uppercase tracking-wider">{name}</h2>
-            <p className="text-lg text-orange-400">{symbol}</p>
+            <p className="text-lg text-orange-800">{symbol}</p>
           </div>
           <div className="flex py-2">
             <h3 className="text-3xl">{`${currencyFormatter(
