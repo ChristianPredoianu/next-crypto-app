@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { gsap } from 'gsap';
@@ -10,7 +11,8 @@ import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
   gsap.registerPlugin(ScrollTrigger);
-
+  const router = useRouter();
+  console.log(router);
   const cardRef = useRef(null);
   const heroSectionRef = useRef(null);
   const aboutHeadingRef = useRef(null);
@@ -89,9 +91,21 @@ export default function CurrencyDetails({ currencyData }) {
   );
 }
 
+export async function getStaticProps({ params }) {
+  console.log(`Building params: ${params.currencyId}`);
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${params.currencyId}`
+  );
+  const currencyData = await res.json();
+
+  return {
+    props: { currencyData },
+  };
+}
+
 export async function getStaticPaths() {
   const res = await fetch(
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false'
   );
   const currencyData = await res.json();
 
@@ -100,20 +114,4 @@ export async function getStaticPaths() {
   }));
 
   return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    console.log(params);
-    const res = await fetch(
-      `https://api.coingecko.com/api/v3/coins/${params.currencyId}`
-    );
-    const currencyData = await res.json();
-
-    return {
-      props: { currencyData },
-    };
-  } catch (err) {
-    console.log(error);
-  }
 }
