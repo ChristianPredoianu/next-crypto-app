@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
 import useScrollToSection from '@/hooks/useScrollToSection';
 import { gsap } from 'gsap';
