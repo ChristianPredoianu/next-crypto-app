@@ -37,10 +37,13 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
       <section
         className="relative flex text-gray-200 py-20 bg-bottom bg-no-repeat bg-cover"
         ref={ref}
-        style={{
-          backgroundImage: `url(${BgImage.src})`,
-        }}
       >
+        <Image
+          layout="fill"
+          src={BgImage}
+          objectFit="cover"
+          objectPosition="bottom"
+        ></Image>
         <div className="container mx-auto px-4 flex flex-col md:flex-row md:justify-around items-center py-20">
           {/* Overlay */}
           <div className="absolute inset-0 z-10 w-full h-full bg-slate-800 dark:bg-clr-dark-theme opacity-30 dark:opacity-70"></div>
