@@ -56,18 +56,25 @@ export default function CurrencyDetails({ currencyData }) {
           content={`Information about ${currencyData.name}`}
           key="title"
         />
+        <meta
+          name="description"
+          content={`Information about ${currencyData.name} crypto currency`}
+        ></meta>
       </Head>
+
       <AboutCurrencyInfoHeroSection
         currencyData={currencyData}
         onScrollToAboutSection={scrollToAboutSectionHandler}
         ref={heroSectionRef}
       />
+
       <section className="container mx-auto flex flex-col">
         <AboutCryptoCard currencyData={currencyData} ref={cardRef} />
         <p className="hidden sm:block text-gray-400 text-7xl text-center -mt-40 ml-72">
           Market
         </p>
       </section>
+
       <section
         className="container mx-auto flex py-40 md:py-64"
         ref={aboutHeadingRef}
