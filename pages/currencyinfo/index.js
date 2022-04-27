@@ -37,6 +37,10 @@ export default function CurrencyInfoPage({ currencyData }) {
       <Head>
         <title>Next Crypto App | Currency Info</title>
         <meta property="og:title" content="Currency Information" key="title" />
+        <meta
+          name="description"
+          content="Your accurate cryptocurrency data and information"
+        ></meta>
       </Head>
       <section
         className="container mx-auto px-4 py-16 md:py-32"
