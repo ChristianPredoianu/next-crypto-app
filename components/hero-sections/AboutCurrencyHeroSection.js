@@ -49,7 +49,10 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
             <div className="flex justify-around items-center py-10 text-3xl text-white">
               {socialMediaIcons}
             </div>
-            <button className="p-4 glass-btn rounded transition duration-150 hover:bg-indigo-800">
+            <button
+              className="p-4 glass-btn rounded transition duration-150 hover:bg-indigo-800"
+              onClick={props.onScrollToAboutSection}
+            >
               About {name}
             </button>
           </div>

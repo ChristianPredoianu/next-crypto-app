@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import useScrollToSection from '@/hooks/useScrollToSection';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import AboutCurrencyInfoHeroSection from '@/components/hero-sections/AboutCurrencyHeroSection';
@@ -10,9 +11,16 @@ import InfoImg from '@/assets/images/info.jpg';
 
 export default function CurrencyDetails({ currencyData }) {
   gsap.registerPlugin(ScrollTrigger);
-  const router = useRouter();
 
-  console.log(router);
+  const cardRef = useRef(null);
+  const heroSectionRef = useRef(null);
+  const aboutHeadingRef = useRef(null);
+
+  const [scrollToSection] = useScrollToSection();
+
+  function scrollToAboutSectionHandler() {
+    scrollToSection(aboutHeadingRef);
+  }
 
   let currencyDescription;
 
@@ -21,10 +29,6 @@ export default function CurrencyDetails({ currencyData }) {
   } else {
     currencyDescription = currencyData.description.en.replace(/(<([^>]+)>)/gi);
   }
-
-  const cardRef = useRef(null);
-  const heroSectionRef = useRef(null);
-  const aboutHeadingRef = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
     const tl = gsap.timeline({
@@ -47,6 +51,7 @@ export default function CurrencyDetails({ currencyData }) {
     <>
       <AboutCurrencyInfoHeroSection
         currencyData={currencyData}
+        onScrollToAboutSection={scrollToAboutSectionHandler}
         ref={heroSectionRef}
       />
       <section className="container mx-auto flex flex-col">
@@ -55,7 +60,10 @@ export default function CurrencyDetails({ currencyData }) {
           Market
         </p>
       </section>
-      <section className="container mx-auto flex py-40 md:py-64">
+      <section
+        className="container mx-auto flex py-40 md:py-64"
+        ref={aboutHeadingRef}
+      >
         <div className="flex flex-col md:flex-row justify-around items-center">
           <div className="w-3/6 md:w-2/6 pb-10 md:pb-0">
             <h3 className="text-center text-4xl pb-10 md:pb-0">
