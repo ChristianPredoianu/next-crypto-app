@@ -1,9 +1,13 @@
 import classNames from 'classnames';
 
-export default function AboutCryptoCardListItem({ title, data, index }) {
-  let color;
+export default function AboutCryptoCardListItem({ coinMarket, index }) {
+  const { title, data } = coinMarket;
 
-  data < 0 ? (color = 'text-red-500') : (color = 'text-green-500');
+  let priceChangeColor;
+
+  parseInt(data) < 0
+    ? (priceChangeColor = 'text-red-500')
+    : (priceChangeColor = 'text-green-500');
 
   return (
     <li className="border-b border-b-gray-500">
@@ -11,7 +15,7 @@ export default function AboutCryptoCardListItem({ title, data, index }) {
         <h4 className="text-xl">{title}</h4>
         <p
           className={classNames('py-2', 'text-lg', {
-            [`${color}`]: index === 2,
+            [`${priceChangeColor}`]: index === 2,
           })}
         >
           {data}
