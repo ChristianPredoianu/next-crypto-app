@@ -47,6 +47,10 @@ export default function ExchangePage({ currencyData }) {
           content="Information about cryptocurrency exchange"
           key="title"
         />
+        <meta
+          name="description"
+          content="Your accurate cryptocurrency data chart"
+        ></meta>
       </Head>
       <ExchangeHeroSection listRef={cardsSectionRef} />
       <h2 className="text-2xl text-center md:text-4xl lg:text-5xl pt-20 md:pt-40 lg:pt-64">
