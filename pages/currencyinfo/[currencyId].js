@@ -91,7 +91,7 @@ export default function CurrencyDetails({ currencyData }) {
             />
           </div>
           <div className="w-11/12 md:w-7/12">
-            <h5 className="text-xl py-4">Basic Information</h5>
+            <h2 className="text-xl py-4">Basic Information</h2>
             <h3 className="text-3xl pb-4" ref={aboutHeadingRef}>
               About {currencyData.name}
             </h3>
