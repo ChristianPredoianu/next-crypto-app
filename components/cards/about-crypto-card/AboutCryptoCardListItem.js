@@ -7,7 +7,7 @@ export default function AboutCryptoCardListItem({ coinMarket, index }) {
 
   parseInt(data) < 0
     ? (priceChangeColor = 'text-red-500')
-    : (priceChangeColor = 'text-green-500');
+    : (priceChangeColor = 'text-clr-green-dark');
 
   return (
     <li className="border-b border-b-gray-500">
