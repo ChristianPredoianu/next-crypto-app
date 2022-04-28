@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         'clr-dark-theme': '#121212',
         'clr-bg-dark': 'rgba(36, 53, 200, 1)',
+        'clr-green-dark': '#0d3006',
       },
     },
   },
