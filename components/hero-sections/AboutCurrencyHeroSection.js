@@ -39,10 +39,11 @@ export default forwardRef(function CurrencyInfoHeroSection(props, ref) {
         ref={ref}
       >
         <Image
-          layout="fill"
           src={BgImage}
+          layout="fill"
           objectFit="cover"
           objectPosition="bottom"
+          alt="People in crowd at concert"
         ></Image>
         <div className="container mx-auto px-4 flex flex-col md:flex-row md:justify-around items-center py-20">
           {/* Overlay */}

@@ -87,6 +87,7 @@ export default function CurrencyDetails({ currencyData }) {
               layout="responsive"
               width={192}
               height={144}
+              priority
             />
           </div>
           <div className="w-11/12 md:w-7/12">
