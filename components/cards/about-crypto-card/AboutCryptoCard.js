@@ -47,7 +47,7 @@ export default forwardRef(function AboutCryptoCard(props, ref) {
           height={80}
         />
       </div>
-      <h4 className="text-center mt-2">{`(${symbol})`}</h4>
+      <h3 className="text-center mt-2">{`(${symbol})`}</h3>
       <div className="flex justify-center py-4">
         <AboutCryptoCardList market={market} />
       </div>
