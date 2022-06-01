@@ -36,11 +36,12 @@ export default function Pagination({
     </a>
   ));
 
-  const forwardArrow = pageNumbers.at(-1) !== currentPage && (
+  const forwardArrow = pageNumbers[pageNumbers.length - 1] !== currentPage && (
     <a href="#!" onClick={() => onNextPage(pageNumbers)}>
       <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
     </a>
   );
+
   return (
     <div className="flex justify-center">
       <ul className="flex items-center">
