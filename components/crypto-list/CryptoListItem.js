@@ -1,9 +1,8 @@
-import { memo } from 'react';
 import Image from 'next/image';
 import useCurrencyFormatter from '@/hooks/useCurrencyFormatter';
 import classNames from 'classnames';
 
-export default memo(function CryptoListItem({ currency }) {
+export default function CryptoListItem({ currency }) {
   const {
     name,
     symbol,
@@ -57,4 +56,4 @@ export default memo(function CryptoListItem({ currency }) {
       <p className="hidden w-full md:block">{currencyFormatter(market_cap)}</p>
     </li>
   );
-});
+}

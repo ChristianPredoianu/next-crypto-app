@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CryptoListMenu from '@/components/crypto-list/CryptoListMenu';
 import CryptoListItem from '@/components/crypto-list/CryptoListItem';
 
@@ -22,6 +22,10 @@ export default function CryptoList({ currencyData }) {
     setActiveArrow(null);
     setDataToMap(currencyData);
   }
+
+  useEffect(() => {
+    setDataToMap(currencyData);
+  }, [currencyData]);
 
   const cryptoListItems = dataToMap.map((currency) => (
     <CryptoListItem key={currency.id} currency={currency} />

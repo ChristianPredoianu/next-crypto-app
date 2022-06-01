@@ -20,14 +20,6 @@ export default function CurrencyInfoPage({ currencyData }) {
   } = usePagination(currencyData);
 
   const topFiveCurrencies = currencyData.slice(0, 5);
-  console.log(
-    currentCurrencies,
-    productsPerPage,
-    currentPage,
-    paginationHandler,
-    prevPageHandler,
-    nextPageHandler
-  );
 
   const listRef = useRef(null);
   const cardsSectionRef = useRef(null);
