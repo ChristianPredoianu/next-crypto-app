@@ -31,7 +31,7 @@ export default function CurrencyInfoPage({ currencyData }) {
   ));
 
   useIsomorphicLayoutEffect(() => {
-    const cardsAnimation = gsap.from(c('.cryptoInfoCard'), {
+    const cardsAnimation = gsap.from(c('.cryptoInfoCard '), {
       y: 100,
       opacity: 0,
       stagger: 0.25,
