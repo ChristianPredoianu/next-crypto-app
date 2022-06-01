@@ -1,13 +1,24 @@
 import { useRef } from 'react';
 import Head from 'next/head';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { usePagination } from '@/hooks/usePagination';
 import { gsap } from 'gsap';
 import CurrencyInfoHeroSection from '@/components/hero-sections/CurrencyInfoHeroSection';
 import CryptoInfoCard from '@/components/cards/CryptoInfoCard';
 import CryptoInfoList from '@/components/crypto-info-list/CryptoInfoList';
+import Pagination from '@/components/Ui/Pagination';
 import ArrowUp from '@/components/Ui/ArrowUp';
 
 export default function CurrencyInfoPage({ currencyData }) {
+  const {
+    currentCurrencies,
+    productsPerPage,
+    currentPage,
+    paginationHandler,
+    prevPageHandler,
+    nextPageHandler,
+  } = usePagination(currencyData);
+
   const topFiveCurrencies = currencyData.slice(0, 5);
 
   const listRef = useRef(null);
@@ -50,9 +61,19 @@ export default function CurrencyInfoPage({ currencyData }) {
         {cryptoCards}
       </section>
       <section className="container mx-auto" ref={listRef}>
-        <h3 className="text-center text-4xl py-40">Currencies</h3>
-        <CryptoInfoList currencyData={currencyData} />
-        <div className="text-center py-20 lg:mt-36">
+        <h3 className="text-center text-4xl py-20">Currencies</h3>
+        <CryptoInfoList currencyData={currentCurrencies} />
+        <div className="mt-10">
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={currencyData.length}
+            currentPage={currentPage}
+            onPaginate={paginationHandler}
+            onPrevPage={prevPageHandler}
+            onNextPage={nextPageHandler}
+          />
+        </div>
+        <div className="text-center py-10 mt-10">
           <ArrowUp sectionRef={listRef} />
         </div>
       </section>

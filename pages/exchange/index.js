@@ -1,14 +1,25 @@
 import { useRef } from 'react';
 import Head from 'next/head';
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect';
+import { usePagination } from '@/hooks/usePagination';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ExchangeHeroSection from '@/components/hero-sections/ExchangeHeroSection';
 import CryptoCard from '@/components/cards/CryptoCard';
 import CryptoList from '@/components/crypto-list/CryptoList';
+import Pagination from '@/components/Ui/Pagination';
 import ArrowUp from '@/components/Ui/ArrowUp';
 
 export default function ExchangePage({ currencyData }) {
+  const {
+    currentCurrencies,
+    productsPerPage,
+    currentPage,
+    paginationHandler,
+    prevPageHandler,
+    nextPageHandler,
+  } = usePagination(currencyData);
+
   const topFiveCurrencies = currencyData.slice(0, 5);
 
   const cardsSectionRef = useRef(null);
@@ -64,7 +75,18 @@ export default function ExchangePage({ currencyData }) {
       </section>
       <section className="mt-64" ref={listRef}>
         <h3 className="text-center text-4xl pb-20">Market</h3>
-        <CryptoList currencyData={currencyData} />
+        <CryptoList currencyData={currentCurrencies} />
+
+        <div className="mt-10">
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={currencyData.length}
+            currentPage={currentPage}
+            onPaginate={paginationHandler}
+            onPrevPage={prevPageHandler}
+            onNextPage={nextPageHandler}
+          />
+        </div>
       </section>
       <div className="text-center py-20">
         <ArrowUp sectionRef={listRef} />
