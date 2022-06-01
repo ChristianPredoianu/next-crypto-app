@@ -28,7 +28,8 @@ export default function Pagination({
         key={number}
         //Set the active page
         className={classNames('text-2xl m-2 py-2 px-3', {
-          'bg-black text-white': currentPage === number,
+          'bg-black text-white dark:bg-purple-500 text-white':
+            currentPage === number,
         })}
       >
         {number}
