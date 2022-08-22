@@ -57,9 +57,9 @@ A website made for Restaurant Napoli - Olofström - Sweden
 
 ### Built With
 
-* [Next.js](https://reactjs.org/)
+* [Next.js](https://nextjs.org/)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
-* [Tailwind Css](https://vitejs.dev/)
+* [Tailwind Css](https://tailwindcss.com/)
 * [GSAP](https://greensock.com/gsap/)
 * [Classnames](https://jedwatson.github.io/classnames/)
 
