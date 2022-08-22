@@ -53,7 +53,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A website made for Restaurant Napoli - Olofström - Sweden
+A website with information about crypto currencies and data.
 
 ### Built With
 
