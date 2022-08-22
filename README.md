@@ -6,17 +6,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     <img src="assets/images/watch.png" alt="Logo" width="160" height="200">
   </a> 
 
-  <h3 align="center">Demo store - Shop Drip</h3>
+  <h3 align="center">Crypto app</h3>
    
   <p align="center">
-   Demo store - Shop Drip
+   Crypto app
     <br />
-    <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ChristianPredoianu/next-crypto-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://react-ts-vite-store.netlify.app/shop">View Demo</a>
+    <a href="https://next-crypto-app-eight.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store/issues">Report Bug</a>
+    <a href="https://github.com/ChristianPredoianu/next-crypto-app">Report Bug</a>
     ·  
    
   </p>
@@ -57,17 +57,12 @@ A website made for Restaurant Napoli - Olofström - Sweden
 
 ### Built With
 
-* [React.js](https://reactjs.org/)
-* [React router v6](https://reactrouter.com/)
-* [Vite](https://vitejs.dev/)
-* [TypeScript](https://www.typescriptlang.org/)
+* [Next.js](https://reactjs.org/)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
-* [Css3](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Sass](https://sass-lang.com/)
+* [Tailwind Css](https://vitejs.dev/)
 * [GSAP](https://greensock.com/gsap/)
-* [Swiper.js](https://swiperjs.com/)
 * [Classnames](https://jedwatson.github.io/classnames/)
-* [React Hook Form](https://react-hook-form.com/)
+
 
 
 <!-- GETTING STARTED -->
@@ -86,7 +81,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ChristianPredoianu/react-vite-ts-demo-store
+   git clone https://github.com/ChristianPredoianu/next-crypto-app
    ```
 2. Install NPM packages
    ```sh
@@ -113,10 +108,15 @@ To get a local copy up and running follow these simple steps.
 ## Usage
 
 
+Navigate around the site, toggle dark mode (Not using window.matchMedia to detect system preferance though). 
 
-Navigate around the website, user can select a category of products to view, navigate through products with the help of a pagination
-, see more info about a specific product, search product,  add product to cart, delete product from cart, change amount of a specific product, see total amount, 
-fill in a form that uses form validation to validate the form given specific rules. 
+---currencyInfo route: User can open tabs to navigate to details about a specific currency.
+
+
+---/exchange route: See info about top 5 crypto currencies. Navigate a list of currencies with the help of pagination. Filter currency data (Ascending, descending) 
+and reset the filter. 
+
+Scroll up and down to animate cards (GSAP ScrollTrigger)
 
  
 
@@ -132,7 +132,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Christian Predoianu - [@linkedin](https://se.linkedin.com/in/christian-predoianu-369218157) - christianpredoianu@yahoo.com
 
-Project Link: [https://github.com/ChristianPredoianu/react-vite-ts-demo-store](https://github.com/ChristianPredoianu/react-vite-ts-demo-store)
+Project Link: [https://github.com/ChristianPredoianu/next-crypto-app](https://github.com/ChristianPredoianu/next-crypto-app)
 
 
 
@@ -140,7 +140,7 @@ Project Link: [https://github.com/ChristianPredoianu/react-vite-ts-demo-store](h
 ## Acknowledgements
 * [Google Fonts](https://fonts.google.com/)
 * [Font-Awesome](https://fontawesome.com/)
-* [Fake Store API](https://fakestoreapi.com/)
+* [CoinGecko API](https://www.coingecko.com/en/api)
 
 
 
