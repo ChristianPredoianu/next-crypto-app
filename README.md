@@ -110,7 +110,7 @@ To get a local copy up and running follow these simple steps.
 
 Navigate around the site, toggle dark mode (Not using window.matchMedia to detect system preferance though). 
 
----currencyInfo route: User can open tabs to navigate to details about a specific currency.
+---/currencyInfo route: User can open tabs to navigate to details about a specific currency.
 
 
 ---/exchange route: See info about top 5 crypto currencies. Navigate a list of currencies with the help of pagination. Filter currency data (Ascending, descending) 
