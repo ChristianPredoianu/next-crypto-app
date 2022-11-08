@@ -18,7 +18,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   </p>
 </p>
 
- 
+  
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
